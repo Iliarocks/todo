@@ -1,0 +1,20 @@
+import { View, Text } from "react-native";
+import Header from "@/components/Header";
+import Button from "@/components/Button";
+import { useContext } from "react";
+import { AuthContext } from "@/utilities/authContext";
+import { useRouter } from "expo-router";
+
+export default function Settings() {
+  const authState = useContext(AuthContext);
+
+  return (
+    <View className="flex-1 bg-background px-xl">
+      <Header text="settings" />
+      <View className="flex-1 justify-center gap-4xl">
+        <Text>poopy pants is peepee pants</Text>
+        <Button type="text" label="sign out" onPress={authState.logOut} />
+      </View>
+    </View>
+  );
+}

@@ -16,7 +16,7 @@ export default function Button({
 
 function TextButton({ label }: { label: string }) {
   return (
-    <View className="rounded-lg bg-primary px-xl py-md">
+    <View className="rounded-xl bg-primary px-xl py-md">
       <Text className="text-secondary-text font-roboto-mono-md text-body-sm">
         {label}
       </Text>
@@ -26,7 +26,7 @@ function TextButton({ label }: { label: string }) {
 
 function IconButton({ name }: { name: string }) {
   return (
-    <View className="rounded-lg bg-primary px-xl py-md">
+    <View className="rounded-xl bg-primary px-xl py-md">
       <MaterialIcons name={name} size={24} color={colors["secondary-text"]} />
     </View>
   );

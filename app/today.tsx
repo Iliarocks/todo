@@ -1,14 +1,10 @@
 import { View, Text } from "react-native";
-import Button from "@/components/Button";
+import Header from "@/components/Header";
 
 export default function Index() {
   return (
     <View className="flex-1 bg-background px-xl">
-      <View className="py-lg">
-        <Text className="text-secondary-text font-roboto-mono-md text-body-sm">
-          today
-        </Text>
-      </View>
+      <Header text="today" />
       <View className="flex-1 justify-center gap-4xl">
         <Text>poopy pants is peepee pants</Text>
       </View>

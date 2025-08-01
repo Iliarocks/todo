@@ -19,6 +19,9 @@ export default function Index() {
         <Text className="text-secondary-text font-roboto-mono-md text-body-sm">
           settings
         </Text>
+        <View className="invisible">
+          <Button type="icon" label="add" />
+        </View>
       </View>
     </View>
   );

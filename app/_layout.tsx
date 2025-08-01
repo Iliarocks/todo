@@ -11,7 +11,7 @@ export default function RootLayout() {
           headerShown: false,
         }}
       ></Stack>
-      <View className="bottom-safe right-0 absolute px-xl py-3xs">
+      <View className="bottom-safe right-0 absolute px-xl py-lg">
         <Button type="icon" label="add" />
       </View>
     </SafeAreaView>

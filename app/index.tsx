@@ -1,30 +1,23 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { Link, RelativePathString } from "expo-router";
 import Header from "@/components/Header";
-import Button from "@/components/Button";
+import Footer from "@/components/Footer";
 
 export default function Index() {
   return (
     <View className="flex-1 bg-background px-xl">
       <Header text="welcome" />
       <View className="flex-1 justify-center gap-4xl">
-        <PrimaryNavigationButton label="inbox" path="./inbox" />
-        <PrimaryNavigationButton label="today" path="./today" />
-        <PrimaryNavigationButton label="upcoming" path="./upcoming" />
+        <NavigationButton label="inbox" path="./inbox" />
+        <NavigationButton label="today" path="./today" />
+        <NavigationButton label="upcoming" path="./upcoming" />
       </View>
-      <View className="flex-row items-center justify-between py-lg">
-        <Text className="text-secondary-text font-roboto-mono-md leading-base text-body-sm">
-          settings
-        </Text>
-        <View className="invisible">
-          <Button type="icon" label="add" />
-        </View>
-      </View>
+      <Footer />
     </View>
   );
 }
 
-function PrimaryNavigationButton({
+function NavigationButton({
   label,
   path,
 }: {

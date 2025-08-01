@@ -12,7 +12,7 @@ export default function Footer() {
         settings
       </Link>
       <View className="invisible">
-        <Button type="icon" label="add" />
+        <Button type="icon" iconName="add" onPress={() => {}} />
       </View>
     </View>
   );

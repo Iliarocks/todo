@@ -1,33 +1,42 @@
-import { Text, View } from "react-native";
+import { Pressable, Text } from "react-native";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import colors from "../constants/Colors";
 
+type Type = "text" | "icon";
+type IconName = "add" | "tag";
+
 export default function Button({
   type,
+  onPress,
   label,
+  iconName,
 }: {
-  type: string;
-  label: string;
+  type: Type;
+  onPress: () => void;
+  label?: string;
+  iconName?: IconName;
 }) {
-  if (type === "text") return <TextButton label={label} />;
-
-  if (type === "icon") return <IconButton name={label} />;
+  return (
+    <Pressable className="rounded-xl bg-primary px-xl py-md" onPress={onPress}>
+      {type === "text" ? (
+        <TextButton label={label!} />
+      ) : (
+        <IconButton iconName={iconName!} />
+      )}
+    </Pressable>
+  );
 }
 
 function TextButton({ label }: { label: string }) {
   return (
-    <View className="rounded-xl bg-primary px-xl py-md">
-      <Text className="text-secondary-text font-roboto-mono-md text-body-sm">
-        {label}
-      </Text>
-    </View>
+    <Text className="text-secondary-text font-roboto-mono-md text-body-sm">
+      {label}
+    </Text>
   );
 }
 
-function IconButton({ name }: { name: string }) {
+function IconButton({ iconName }: { iconName: IconName }) {
   return (
-    <View className="rounded-xl bg-primary px-xl py-md">
-      <MaterialIcons name={name} size={24} color={colors["secondary-text"]} />
-    </View>
+    <MaterialIcons name={iconName} size={24} color={colors["secondary-text"]} />
   );
 }

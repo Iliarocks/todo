@@ -1,11 +1,10 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
+import CustomText from "./CustomText";
 
 export default function Header({ text }: { text: string }) {
   return (
     <View className="py-lg">
-      <Text className="text-secondary-text font-roboto-mono-md leading-base text-body-sm">
-        {text}
-      </Text>
+      <CustomText style="body" size="sm" color="secondary" text="welcome" />
     </View>
   );
 }

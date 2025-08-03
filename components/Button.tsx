@@ -1,6 +1,7 @@
-import { Pressable, Text } from "react-native";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { Pressable } from "react-native";
 import colors from "../constants/Colors";
+import CustomText from "./CustomText";
 
 type Type = "text" | "icon";
 type IconName = "add" | "tag";
@@ -28,11 +29,7 @@ export default function Button({
 }
 
 function TextButton({ label }: { label: string }) {
-  return (
-    <Text className="text-secondary-text font-roboto-mono-md text-body-sm">
-      {label}
-    </Text>
-  );
+  return <CustomText style="body" size="sm" color="secondary" text={label} />;
 }
 
 function IconButton({ iconName }: { iconName: IconName }) {

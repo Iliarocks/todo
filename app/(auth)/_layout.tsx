@@ -1,0 +1,22 @@
+import { Redirect, Stack } from "expo-router";
+import React, { useContext } from "react";
+import { AuthContext } from "@/utilities/authContext";
+
+export default function UnAuthenticatedLayout() {
+  const authState = useContext(AuthContext);
+
+  if (authState.isLoggedIn) return <Redirect href="/" />;
+
+  return (
+    <React.Fragment>
+      <Stack
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="emailStep" />
+        <Stack.Screen name="codeStep" />
+      </Stack>
+    </React.Fragment>
+  );
+}

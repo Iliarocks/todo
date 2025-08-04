@@ -1,5 +1,5 @@
 export default {
-  base: "24px",
+  base: "22px",
   "title-xl": "40px",
   "title-lg": "32px",
 };

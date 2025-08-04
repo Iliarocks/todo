@@ -1,17 +1,16 @@
 import { Redirect, Stack } from "expo-router";
-import { View, SafeAreaView } from "react-native";
+import { View } from "react-native";
 import Button from "@/components/Button";
-import "../../assets/global.css";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "@/utilities/authContext";
 
 export default function AuthenticatedLayout() {
   const authState = useContext(AuthContext);
 
-  if (!authState.isLoggedIn) return <Redirect href="/auth" />;
+  if (!authState.isLoggedIn) return <Redirect href="/emailStep" />;
 
   return (
-    <SafeAreaView className="flex-1 bg-background">
+    <React.Fragment>
       <Stack
         screenOptions={{
           headerShown: false,
@@ -28,9 +27,9 @@ export default function AuthenticatedLayout() {
           }}
         />
       </Stack>
-      <View className="bottom-safe right-0 absolute px-xl py-lg">
+      <View className="bottom-safe absolute right-0 px-xl py-lg">
         <Button type="icon" iconName="add" onPress={() => {}} />
       </View>
-    </SafeAreaView>
+    </React.Fragment>
   );
 }

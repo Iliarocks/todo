@@ -1,5 +1,5 @@
 import { Stack } from "expo-router";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, View } from "react-native";
 import "../assets/global.css";
 import { AuthProvider } from "@/utilities/authContext";
 
@@ -13,13 +13,13 @@ export default function RootLayout() {
           }}
         >
           <Stack.Screen
-            name="(protected)"
+            name="(auth)"
             options={{
               animation: "none",
             }}
           />
           <Stack.Screen
-            name="auth"
+            name="(protected)"
             options={{
               animation: "none",
             }}

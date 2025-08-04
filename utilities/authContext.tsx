@@ -1,9 +1,7 @@
 import { useRouter } from "expo-router";
 import { createContext, PropsWithChildren, useState } from "react";
-import { init, User } from "@instantdb/react-native";
-
-const APP_ID = "81185f3e-d773-4c94-a6cb-c08ebe7bdf22";
-const db = init({ appId: APP_ID });
+import { User } from "@instantdb/react-native";
+import { db } from "./database";
 
 type AuthState = {
   setEmail: (email: string) => void;

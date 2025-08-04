@@ -1,4 +1,4 @@
-import { Redirect, Stack } from "expo-router";
+import { Redirect, router, Stack } from "expo-router";
 import { View } from "react-native";
 import Button from "@/components/Button";
 import React, { useContext } from "react";
@@ -20,7 +20,7 @@ export default function ProtectedLayout() {
         <Stack.Screen name="inbox" />
         <Stack.Screen name="today" />
         <Stack.Screen name="upcoming" />
-        <Stack.Screen name="addTodo" options={{ presentation: "modal" }} />
+        <Stack.Screen name="createTodo" options={{ presentation: "modal" }} />
         <Stack.Screen
           name="settings"
           options={{
@@ -29,7 +29,11 @@ export default function ProtectedLayout() {
         />
       </Stack>
       <View className="absolute bottom-0 right-0 px-xl py-lg">
-        <Button type="icon" iconName="add" onPress={() => {}} />
+        <Button
+          type="icon"
+          iconName="add"
+          onPress={() => router.push("/createTodo")}
+        />
       </View>
     </React.Fragment>
   );

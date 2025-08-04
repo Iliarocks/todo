@@ -14,7 +14,12 @@ export default function EmailStep() {
     <View className="flex-1 bg-background px-xl">
       <View className="flex-1 justify-center gap-lg py-sm">
         <CustomText>copy the code sent to your email</CustomText>
-        <CustomTextInput autoFocus={true} onChangeText={authContext.setCode} keyboardType="numeric" />
+        <CustomTextInput
+          autoFocus={true}
+          onChangeText={authContext.setCode}
+          value={authContext.code}
+          keyboardType="numeric"
+        />
       </View>
       <View className="flex-row items-center justify-between py-lg">
         <Button type="text" label="back" onPress={() => router.back()} />

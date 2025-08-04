@@ -15,8 +15,7 @@ export default function EmailStep() {
           style="body"
           size="sm"
           color="primary"
-          text="enter your email to begin"
-        />
+        >enter your email to begin</CustomText>
         <CustomTextInput
           onChangeText={authContext.setEmail}
           autoFocus={false}

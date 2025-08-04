@@ -20,6 +20,7 @@ export default function AuthenticatedLayout() {
         <Stack.Screen name="inbox" />
         <Stack.Screen name="today" />
         <Stack.Screen name="upcoming" />
+        <Stack.Screen name="addTodo" options={{ presentation: "modal" }} />
         <Stack.Screen
           name="settings"
           options={{

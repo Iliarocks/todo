@@ -17,8 +17,7 @@ export default function EmailStep() {
           style="body"
           size="sm"
           color="primary"
-          text="copy the code sent to your email"
-        />
+        >copy the code sent to your email</CustomText>
         <CustomTextInput autoFocus={true} onChangeText={authContext.setCode} keyboardType="numeric" />
       </View>
       <View className="flex-row items-center justify-between py-lg">

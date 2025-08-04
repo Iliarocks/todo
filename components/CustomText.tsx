@@ -1,4 +1,5 @@
 import { Text } from "react-native";
+import { ReactNode } from "react";
 
 type Style = "title" | "body";
 type Color = "primary" | "secondary";
@@ -8,18 +9,18 @@ export default function CustomText({
   style,
   color,
   size,
-  text,
+  children,
 }: {
   style: Style;
   color: Color;
   size: Size;
-  text: string;
+  children: ReactNode;
 }) {
   return (
     <Text
       className={`${getFontSize({ style, size })} ${getLineHeight({ style, size })} ${getColor({ color })} ${getFont({ style })} antialiased`}
     >
-      {text}
+      {children}
     </Text>
   );
 }

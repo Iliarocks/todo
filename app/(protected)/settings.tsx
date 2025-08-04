@@ -4,7 +4,6 @@ import Button from "@/components/Button";
 import { useContext } from "react";
 
 import { AuthContext } from "@/utilities/authContext";
-import CustomText from "@/components/CustomText";
 export default function Settings() {
   const authState = useContext(AuthContext);
 

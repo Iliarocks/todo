@@ -6,14 +6,14 @@ type Color = "primary" | "secondary";
 type Size = "sm" | "md" | "lg" | "xl";
 
 export default function CustomText({
-  style,
-  color,
-  size,
+  style = "body",
+  color = "primary",
+  size = "sm",
   children,
 }: {
-  style: Style;
-  color: Color;
-  size: Size;
+  style?: Style;
+  color?: Color;
+  size?: Size;
   children: ReactNode;
 }) {
   return (

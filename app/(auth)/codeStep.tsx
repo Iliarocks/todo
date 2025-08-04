@@ -13,11 +13,7 @@ export default function EmailStep() {
   return (
     <View className="flex-1 bg-background px-xl">
       <View className="flex-1 justify-center gap-lg py-sm">
-        <CustomText
-          style="body"
-          size="sm"
-          color="primary"
-        >copy the code sent to your email</CustomText>
+        <CustomText>copy the code sent to your email</CustomText>
         <CustomTextInput autoFocus={true} onChangeText={authContext.setCode} keyboardType="numeric" />
       </View>
       <View className="flex-row items-center justify-between py-lg">

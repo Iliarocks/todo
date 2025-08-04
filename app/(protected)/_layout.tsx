@@ -4,7 +4,7 @@ import Button from "@/components/Button";
 import React, { useContext } from "react";
 import { AuthContext } from "@/utilities/authContext";
 
-export default function AuthenticatedLayout() {
+export default function ProtectedLayout() {
   const authState = useContext(AuthContext);
 
   if (!authState.user) return <Redirect href="/emailStep" />;
@@ -28,7 +28,7 @@ export default function AuthenticatedLayout() {
           }}
         />
       </Stack>
-      <View className="bottom-safe absolute right-0 px-xl py-lg">
+      <View className="absolute bottom-0 right-0 px-xl py-lg">
         <Button type="icon" iconName="add" onPress={() => {}} />
       </View>
     </React.Fragment>

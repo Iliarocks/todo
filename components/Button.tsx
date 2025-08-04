@@ -32,7 +32,7 @@ export default function Button({
 }
 
 function TextButton({ label }: { label: string }) {
-  return <CustomText style="body" size="sm" color="secondary">{label}</CustomText>;
+  return <CustomText color="secondary">{label}</CustomText>;
 }
 
 function IconButton({ iconName }: { iconName: IconName }) {

@@ -11,11 +11,7 @@ export default function EmailStep() {
   return (
     <View className="flex-1 bg-background px-xl">
       <View className="flex-1 justify-center gap-lg py-sm">
-        <CustomText
-          style="body"
-          size="sm"
-          color="primary"
-        >enter your email to begin</CustomText>
+        <CustomText>enter your email to begin</CustomText>
         <CustomTextInput
           onChangeText={authContext.setEmail}
           autoFocus={false}

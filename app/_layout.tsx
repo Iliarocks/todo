@@ -1,11 +1,13 @@
 import { Stack } from "expo-router";
-import { SafeAreaView, View } from "react-native";
+import { SafeAreaView } from "react-native";
 import "../assets/global.css";
 import { AuthProvider } from "@/utilities/authContext";
+import { SplashScreenController } from "@/utilities/splash";
 
 export default function RootLayout() {
   return (
     <AuthProvider>
+      <SplashScreenController />
       <SafeAreaView className="flex-1 bg-background">
         <Stack
           screenOptions={{

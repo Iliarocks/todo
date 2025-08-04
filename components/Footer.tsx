@@ -7,12 +7,12 @@ export default function Footer() {
     <View className="flex-row items-center justify-between py-lg">
       <Link
         href="/settings"
-        className="text-secondary-text font-roboto-mono-md leading-base text-body-sm"
+        className="font-roboto-mono-md text-body-sm leading-base text-secondary-text"
       >
         settings
       </Link>
       <View className="invisible">
-        <Button type="icon" label="add" />
+        <Button type="icon" iconName="add" onPress={() => {}} />
       </View>
     </View>
   );

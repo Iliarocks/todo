@@ -7,7 +7,7 @@ import { AuthContext } from "@/utilities/authContext";
 export default function AuthenticatedLayout() {
   const authState = useContext(AuthContext);
 
-  if (!authState.isLoggedIn) return <Redirect href="/emailStep" />;
+  if (!authState.user) return <Redirect href="/emailStep" />;
 
   return (
     <React.Fragment>

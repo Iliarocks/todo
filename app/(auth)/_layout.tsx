@@ -5,7 +5,7 @@ import { AuthContext } from "@/utilities/authContext";
 export default function UnAuthenticatedLayout() {
   const authState = useContext(AuthContext);
 
-  if (authState.isLoggedIn) return <Redirect href="/" />;
+  if (authState.user) return <Redirect href="/" />;
 
   return (
     <React.Fragment>

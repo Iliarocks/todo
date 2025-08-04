@@ -17,7 +17,10 @@ export default function EmailStep() {
           color="primary"
           text="enter your email to begin"
         />
-        <CustomTextInput autoFocus={false} />
+        <CustomTextInput
+          onChangeText={authContext.setEmail}
+          autoFocus={false}
+        />
       </View>
       <View className="flex-row items-center justify-end py-lg">
         <Button type="text" label="next" onPress={authContext.sendCode} />

@@ -18,7 +18,10 @@ export default function Button({
   iconName?: IconName;
 }) {
   return (
-    <Pressable className="rounded-xl bg-primary px-xl py-md" onPress={onPress}>
+    <Pressable
+      className="flex flex-row justify-center rounded-xl bg-primary px-xl py-md"
+      onPress={onPress}
+    >
       {type === "text" ? (
         <TextButton label={label!} />
       ) : (

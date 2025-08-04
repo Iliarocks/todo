@@ -1,18 +1,22 @@
-import { View } from "react-native";
+import { View, SafeAreaView } from "react-native";
 import Header from "@/components/Header";
 import Button from "@/components/Button";
 import { useContext } from "react";
 
 import { AuthContext } from "@/utilities/authContext";
+import CustomText from "@/components/CustomText";
 export default function Settings() {
   const authState = useContext(AuthContext);
 
   return (
-    <View className="flex-1 bg-background px-xl">
-      <Header text="settings" />
-      <View className="flex-1 justify-center gap-4xl">
-        <Button type="text" label="sign out" onPress={authState.logOut} />
+    <SafeAreaView className="flex-1 bg-background">
+      <View className="flex-1 bg-background px-xl">
+        <Header text={authState.user?.email} />
+        <View className="flex-1"></View>
+        <View className="justify-center gap-lg">
+          <Button type="text" label="sign out" onPress={authState.logOut} />
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

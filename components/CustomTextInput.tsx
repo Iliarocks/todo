@@ -18,6 +18,7 @@ export default function CustomTextInput({
       onChangeText={(text) => onChangeText(text)}
       keyboardType={keyboardType}
       value={value}
+      autoCapitalize="none"
     />
   );
 }

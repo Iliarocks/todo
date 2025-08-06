@@ -13,6 +13,7 @@ const _schema = i.schema({
     }),
     todos: i.entity({
       label: i.string().indexed(),
+      date: i.string().indexed(),
     }),
   },
   links: {

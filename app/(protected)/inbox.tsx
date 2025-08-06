@@ -14,6 +14,7 @@ export default function Inbox() {
     todos: {
       $: {
         where: {
+          date: "",
           "user.id": user.id,
         },
       },
@@ -21,7 +22,7 @@ export default function Inbox() {
   };
   const { isLoading, error, data } = db.useQuery(query);
 
-  if (isLoading || !data) return null;
+  if (isLoading || !data || error) return null;
 
   return (
     <View className="flex-1 bg-background px-xl">

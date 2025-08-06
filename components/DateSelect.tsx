@@ -25,6 +25,8 @@ export default function DateSelect({ date, onDateChange }: DateSelectProps) {
       if (option === "today") {
         const today = new Date().toISOString().split("T")[0];
         onDateChange(today);
+      } else {
+        onDateChange("");
       }
     }
   };

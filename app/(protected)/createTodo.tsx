@@ -1,6 +1,6 @@
 import Button from "@/components/Button";
 import { useState, useContext } from "react";
-import { SafeAreaView, View, Pressable } from "react-native";
+import { SafeAreaView, View } from "react-native";
 import CustomTextInput from "@/components/CustomTextInput";
 import { db } from "@/utilities/database";
 import { id } from "@instantdb/react-native";
@@ -14,12 +14,13 @@ export default function CreateTodo() {
   const { user } = useContext(AuthContext);
   const router = useRouter();
 
-  const pushTodo = (label: string) => {
-    if (!user) return;
+  const pushTodo = () => {
+    if (!user || !label.trim()) return;
     db.transact([
       db.tx.todos[id()].update({ label, date }).link({ user: user.id }),
     ]);
     setLabel("");
+    setDate("");
     router.back();
   };
 
@@ -31,7 +32,7 @@ export default function CreateTodo() {
           <DateSelect date={date} onDateChange={setDate} />
         </View>
         <View className="justify-center gap-lg">
-          <Button type="text" label="create" onPress={() => pushTodo(label)} />
+          <Button type="text" label="create" onPress={pushTodo} />
         </View>
       </View>
     </SafeAreaView>

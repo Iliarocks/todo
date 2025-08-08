@@ -17,7 +17,9 @@ export default function CreateTodo() {
   const pushTodo = () => {
     if (!user || !label.trim()) return;
     db.transact([
-      db.tx.todos[id()].update({ label, date }).link({ user: user.id }),
+      db.tx.todos[id()]
+        .update({ label, date, complete: false, sortOrder: Date.now() })
+        .link({ user: user.id }),
     ]);
     setLabel("");
     setDate("");

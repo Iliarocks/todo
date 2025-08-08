@@ -14,6 +14,8 @@ const _schema = i.schema({
     todos: i.entity({
       label: i.string().indexed(),
       date: i.string().indexed(),
+      complete: i.boolean().indexed(),
+      sortOrder: i.number().indexed(),
     }),
   },
   links: {

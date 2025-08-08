@@ -1,7 +1,8 @@
 export default {
-  background: "#0E0E0E",
-  primary: "#161616",
-  secondary: "#101010",
-  "primary-text": "#CECECE",
-  "secondary-text": "#5A5A5A",
+  background: "#F2F0EF",
+  primary: "#CCCBCA",
+  secondary: "#A6A4A4",
+  accent: "#807E7E",
+  "primary-text": "#2E3133",
+  "secondary-text": "#353839",
 };

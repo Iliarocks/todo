@@ -29,7 +29,7 @@ export default function Index() {
       <Header text="today" />
       <View className="flex-1 py-sm">
         {data.todos.map((todo) => (
-          <Todo key={todo.id} label={todo.label} />
+          <Todo key={todo.id} id={todo.id} label={todo.label} />
         ))}
       </View>
     </View>

@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import Header from "@/components/Header";
-import Todo from "@/components/Todo";
+import TodoList from "@/components/TodoList";
 import { db } from "@/utilities/database";
 import { useContext } from "react";
 import { AuthContext } from "@/utilities/authContext";
@@ -16,6 +16,10 @@ export default function Inbox() {
         where: {
           date: "",
           "user.id": user.id,
+          complete: false,
+        },
+        order: {
+          sortOrder: "asc",
         },
       },
     },
@@ -27,11 +31,7 @@ export default function Inbox() {
   return (
     <View className="flex-1 bg-background px-xl">
       <Header text="inbox" />
-      <View className="flex-1 py-sm">
-        {data.todos.map((todo) => (
-          <Todo key={todo.id} label={todo.label} />
-        ))}
-      </View>
+      <TodoList todos={data.todos} />
     </View>
   );
 }

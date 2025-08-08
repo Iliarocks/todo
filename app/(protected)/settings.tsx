@@ -9,7 +9,7 @@ export default function Settings() {
 
   return (
     <SafeAreaView className="flex-1 bg-background">
-      <View className="flex-1 bg-background px-xl">
+      <View className="flex-1 px-xl pt-sm">
         <Header text={authState.user?.email} />
         <View className="flex-1"></View>
         <View className="justify-center gap-lg">

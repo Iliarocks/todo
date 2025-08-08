@@ -19,7 +19,7 @@ export default function Button({
 }) {
   return (
     <Pressable
-      className="flex flex-row justify-center rounded-xl bg-primary px-xl py-md"
+      className="flex flex-row justify-center rounded-xl bg-primary px-md py-md"
       onPress={onPress}
     >
       {type === "text" ? (
@@ -32,7 +32,7 @@ export default function Button({
 }
 
 function TextButton({ label }: { label: string }) {
-  return <CustomText color="secondary">{label}</CustomText>;
+  return <CustomText color="primary">{label}</CustomText>;
 }
 
 function IconButton({ iconName }: { iconName: IconName }) {

@@ -32,8 +32,8 @@ export default function DateSelect({ date, onDateChange }: DateSelectProps) {
   };
 
   return (
-    <View className="bg-primary">
-      <View className="flex-row items-center justify-between rounded-xl px-xl py-xs">
+    <View className="rounded-xl bg-primary">
+      <View className="flex-row items-center justify-between px-xl py-xs">
         <Pressable
           className={`rounded-xl px-xl py-lg ${selected === "inbox" ? "bg-secondary" : ""}`}
           onPress={() => handleOptionPress("inbox")}
@@ -59,7 +59,7 @@ export default function DateSelect({ date, onDateChange }: DateSelectProps) {
       </View>
 
       {showCalendar && (
-        <View>
+        <View className="overflow-hidden rounded-xl">
           <Calendar
             hideDayNames={true}
             hideExtraDays={true}
@@ -71,10 +71,10 @@ export default function DateSelect({ date, onDateChange }: DateSelectProps) {
               },
             }}
             theme={{
-              backgroundColor: colors.primary,
+              backgroundColor: colors.secondary,
               calendarBackground: colors.primary,
               textSectionTitleColor: colors["secondary-text"],
-              selectedDayBackgroundColor: colors.primary,
+              selectedDayBackgroundColor: colors.secondary,
               todayTextColor: colors["secondary-text"],
               dayTextColor: colors["secondary-text"],
               textDisabledColor: colors["secondary-text"],

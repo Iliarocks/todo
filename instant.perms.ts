@@ -10,11 +10,6 @@ const rules = {
     },
     bind: ["isOwner", "auth.id != null && auth.id in data.ref('user.id')"],
   },
-  $default: {
-    allow: {
-      $default: "false",
-    },
-  },
 } satisfies InstantRules;
 
 export default rules;

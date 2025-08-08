@@ -47,7 +47,7 @@ export default function Todo({
         useNativeDriver: false,
       }),
     ]).start(() => {
-      db.transact([db.tx.todos[id].update({ complete: true })]);
+      db.transact([db.tx.todos[id].delete()]);
     });
   };
 
@@ -68,7 +68,7 @@ export default function Todo({
         useNativeDriver: false,
       }),
     ]).start(() => {
-      db.transact([db.tx.todos[id].delete()]);
+      db.transact([db.tx.todos[id].update({ complete: true })]);
     });
   };
 

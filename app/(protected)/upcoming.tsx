@@ -1,11 +1,10 @@
 import Header from "@/components/Header";
 import TodoList from "@/components/TodoList";
 import { db } from "@/utilities/database";
-import useLoggedInUser from "@/utilities/useLoggedInUser";
 import { View } from "react-native";
 
 export default function Index() {
-  const user = useLoggedInUser();
+  const user = db.useUser();
 
   const query = {
     todos: {

@@ -1,18 +1,13 @@
-import Button from "@/components/Button";
-import { Link } from "expo-router";
+import IconButton from "@/components/IconButton";
 import { View } from "react-native";
+import NavigationButton from "./NavigationButton";
 
 export default function Footer() {
   return (
     <View className="flex-row items-center justify-between py-lg">
-      <Link
-        href="/settings"
-        className="font-roboto-mono-md text-body-sm leading-base text-secondary-text"
-      >
-        settings
-      </Link>
+    <NavigationButton href="./settings">settings</NavigationButton>
       <View className="invisible">
-        <Button contentType="icon" iconName="add" onPress={() => {}} />
+        <IconButton icon="add" onPress={() => {}} />
       </View>
     </View>
   );

@@ -14,6 +14,9 @@ export default function Index() {
           "user.id": user.id,
           complete: false,
         },
+        order: {
+          sortOrder: "asc",
+        },
       },
     },
   };

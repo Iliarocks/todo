@@ -5,7 +5,7 @@ import useLoggedInUser from "@/utilities/useLoggedInUser";
 import { View } from "react-native";
 
 export default function Index() {
-  const user = useLoggedInUser();
+  const user = db.useUser();
 
   const query = {
     todos: {

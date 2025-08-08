@@ -1,5 +1,3 @@
-// Docs: https://www.instantdb.com/docs/permissions
-
 import type { InstantRules } from "@instantdb/react-native";
 
 const rules = {
@@ -11,6 +9,11 @@ const rules = {
       delete: "isOwner",
     },
     bind: ["isOwner", "auth.id != null && auth.id in data.ref('user.id')"],
+  },
+  $default: {
+    allow: {
+      $default: "false",
+    },
   },
 } satisfies InstantRules;
 

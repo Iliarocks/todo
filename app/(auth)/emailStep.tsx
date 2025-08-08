@@ -19,7 +19,11 @@ export default function EmailStep() {
         />
       </View>
       <View className="flex-row items-center justify-end py-lg">
-        <Button type="text" label="next" onPress={authContext.sendCode} />
+        <Button
+          contentType="text"
+          label="next"
+          onPress={authContext.sendCode}
+        />
       </View>
     </View>
   );

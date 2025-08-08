@@ -22,7 +22,12 @@ export default function TodoList({ todos }: { todos: TodoType[] }) {
 
   const renderItem = ({ item, drag, isActive }: RenderItemParams<TodoType>) => {
     return (
-      <Todo id={item.id} label={item.label} drag={drag} activeDrag={isActive} />
+      <Todo
+        id={item.id}
+        label={item.label}
+        onDrag={drag}
+        dragActive={isActive}
+      />
     );
   };
 

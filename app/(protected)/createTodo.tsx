@@ -29,12 +29,12 @@ export default function CreateTodo() {
   return (
     <SafeAreaView className="flex-1 bg-background">
       <View className="flex-1 px-xl pt-xl">
-        <View className="flex-1 gap-lg">
+        <View className="flex-1 gap-md">
           <CustomTextInput onChangeText={setLabel} value={label} />
           <DateSelect date={date} onDateChange={setDate} />
         </View>
         <View className="justify-center gap-lg">
-          <Button type="text" label="create" onPress={pushTodo} />
+          <Button contentType="text" label="create" onPress={pushTodo} />
         </View>
       </View>
     </SafeAreaView>

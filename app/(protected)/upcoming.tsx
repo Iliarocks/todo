@@ -1,9 +1,9 @@
-import { View, Text } from "react-native";
 import Header from "@/components/Header";
-import Todo from "@/components/Todo";
+import TodoList from "@/components/TodoList";
+import { AuthContext } from "@/utilities/authContext";
 import { db } from "@/utilities/database";
 import { useContext } from "react";
-import { AuthContext } from "@/utilities/authContext";
+import { View } from "react-native";
 
 export default function Index() {
   const { user } = useContext(AuthContext);
@@ -19,6 +19,7 @@ export default function Index() {
             { date: { $not: "" } },
             { date: { $not: new Date().toISOString().split("T")[0] } },
           ],
+          complete: false,
         },
       },
     },
@@ -30,11 +31,7 @@ export default function Index() {
   return (
     <View className="flex-1 bg-background px-xl">
       <Header text="upcoming" />
-      <View className="flex-1 py-sm">
-        {data.todos.map((todo) => (
-          <Todo key={todo.id} id={todo.id} label={todo.label} />
-        ))}
-      </View>
+      <TodoList todos={Object.values(data.todos)} />
     </View>
   );
 }

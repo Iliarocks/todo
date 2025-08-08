@@ -1,46 +1,41 @@
 import {
-  Text,
   View,
+  Pressable,
+  Modal,
   Animated,
   useAnimatedValue,
   LayoutAnimation,
-  Pressable,
-  Modal,
 } from "react-native";
 import { useState } from "react";
+import CustomText from "./CustomText";
 import { db } from "@/utilities/database";
-import colors from "@/constants/Colors";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import DateSelect from "@/components/DateSelect";
-
-interface TodoProps {
-  id: string;
-  label: string;
-  drag?: () => void;
-  activeDrag?: boolean;
-}
+import CheckBox from "./CheckBox";
+import Button from "./Button";
+import DateSelect from "./DateSelect";
 
 export default function Todo({
   id,
   label,
-  drag,
-  activeDrag = false,
-}: TodoProps) {
+  onDrag,
+  dragActive = false,
+}: {
+  id: string;
+  label: string;
+  onDrag?: () => void;
+  dragActive?: boolean;
+}) {
   const opacityAnimation = useAnimatedValue(1);
-  const heightAnimation = useAnimatedValue(50);
-  const expandAnimation = useAnimatedValue(0);
+  const heightAnimation = useAnimatedValue(40);
   const [expanded, setExpanded] = useState<boolean>(false);
   const [showDateSelect, setShowDateSelect] = useState<boolean>(false);
   const [todoDate, setTodoDate] = useState<string>("");
 
-  const handleCheck = () => {
+  const handleDelete = () => {
     LayoutAnimation.configureNext(
       LayoutAnimation.create(300, LayoutAnimation.Types.spring),
     );
 
-    if (expanded) handleCollapse();
-
-    Animated.stagger(150, [
+    Animated.stagger(200, [
       Animated.timing(opacityAnimation, {
         toValue: 0,
         duration: 200,
@@ -56,44 +51,57 @@ export default function Todo({
     });
   };
 
-  const handlePress = () => {
+  const handleCheck = () => {
+    LayoutAnimation.configureNext(
+      LayoutAnimation.create(300, LayoutAnimation.Types.spring),
+    );
+
+    Animated.stagger(200, [
+      Animated.timing(opacityAnimation, {
+        toValue: 0,
+        duration: 200,
+        useNativeDriver: false,
+      }),
+      Animated.timing(heightAnimation, {
+        toValue: 0,
+        duration: 300,
+        useNativeDriver: false,
+      }),
+    ]).start(() => {
+      db.transact([db.tx.todos[id].delete()]);
+    });
+  };
+
+  const handleExpand = () => {
     if (!expanded) {
       setExpanded(true);
-      Animated.timing(expandAnimation, {
-        toValue: 100,
+      Animated.timing(heightAnimation, {
+        toValue: 140,
+        duration: 200,
+        useNativeDriver: false,
+      }).start();
+    } else {
+      setExpanded(false);
+      Animated.timing(heightAnimation, {
+        toValue: 40,
         duration: 200,
         useNativeDriver: false,
       }).start();
     }
   };
 
-  const handleCollapse = () => {
-    Animated.timing(expandAnimation, {
-      toValue: 0,
-      duration: 200,
-      useNativeDriver: false,
-    }).start(() => {
-      setExpanded(false);
-      setShowDateSelect(false);
-    });
-  };
-
   const handleDateChange = (date: string) => {
     setTodoDate(date);
     db.transact([db.tx.todos[id].update({ date })]);
-    setShowDateSelect(false);
+    setTimeout(() => {
+      setShowDateSelect(false);
+    }, 400);
   };
 
   return (
     <>
-      {expanded && (
-        <Modal transparent visible={expanded}>
-          <Pressable style={{ flex: 1 }} onPress={handleCollapse} />
-        </Modal>
-      )}
-
       {showDateSelect && (
-        <Modal transparent visible={showDateSelect} animationType="slide">
+        <Modal transparent visible={showDateSelect} animationType="fade">
           <Pressable
             style={{
               flex: 1,
@@ -105,7 +113,6 @@ export default function Todo({
           >
             <View
               style={{
-                backgroundColor: colors.background,
                 borderRadius: 12,
                 padding: 20,
                 width: "90%",
@@ -116,58 +123,50 @@ export default function Todo({
           </Pressable>
         </Modal>
       )}
-
-      <Pressable
-        onPress={handlePress}
-        onLongPress={drag}
-        disabled={activeDrag}
+      <Animated.View
+        className={`overflow-hidden rounded-xl px-sm py-sm ${dragActive || expanded ? "bg-primary" : "bg-background"}`}
         style={{
-          backgroundColor:
-            activeDrag || expanded ? colors.primary : colors.background,
-          zIndex: expanded ? 1000 : 1,
+          opacity: opacityAnimation,
+          height: heightAnimation,
         }}
-        className="overflow-hidden rounded-xl"
       >
-        <Animated.View
-          style={{
-            opacity: opacityAnimation,
-            height: heightAnimation,
-          }}
-          className="justify-center"
-        >
-          <View className="flex-row items-center gap-lg py-sm">
-            <View pointerEvents="box-only">
-              <Pressable
-                className="h-xl w-xl rounded-lg border-[2px] border-primary"
-                onPress={handleCheck}
-              ></Pressable>
-            </View>
-            <Text className="font-roboto-mono-md text-body-sm leading-base text-primary-text">
-              {label}
-            </Text>
+        <View className="grow gap-xs">
+          <View className="flex-row items-center gap-lg">
+            <CheckBox onCheck={handleCheck} />
+            <Pressable
+              onPress={handleExpand}
+              onLongPress={onDrag}
+              disabled={dragActive}
+            >
+              <CustomText>{label}</CustomText>
+            </Pressable>
           </View>
-        </Animated.View>
-        <Animated.View
-          style={{
-            height: expandAnimation,
-          }}
-        >
-          <View className="align-end w-full flex-1 justify-end px-md py-sm">
-            <View pointerEvents="box-only">
-              <Pressable
-                onPress={() => setShowDateSelect(true)}
-                className="flex-row items-center gap-sm"
-              >
-                <MaterialIcons
-                  name="calendar-month"
-                  size={24}
-                  color={colors["primary-text"]}
-                />
-              </Pressable>
+          {expanded && (
+            <View className="grow flex-row gap-lg">
+              <View className="invisible">
+                <CheckBox onCheck={() => {}}></CheckBox>
+              </View>
+              <View className="grow gap-xs rounded-xl py-2xs">
+                <View className="grow rounded-xl"></View>
+                <View className="flex-row gap-sm">
+                  <Button
+                    type="secondary"
+                    contentType="icon"
+                    iconName="calendar-month"
+                    onPress={() => setShowDateSelect(true)}
+                  ></Button>
+                  <Button
+                    type="secondary"
+                    contentType="icon"
+                    iconName="delete"
+                    onPress={handleDelete}
+                  ></Button>
+                </View>
+              </View>
             </View>
-          </View>
-        </Animated.View>
-      </Pressable>
+          )}
+        </View>
+      </Animated.View>
     </>
   );
 }

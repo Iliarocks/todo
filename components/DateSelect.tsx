@@ -33,7 +33,7 @@ export default function DateSelect({ date, onDateChange }: DateSelectProps) {
 
   return (
     <View className="rounded-xl bg-primary">
-      <View className="flex-row items-center justify-between px-xl py-xs">
+      <View className="flex-row items-center justify-between px-sm py-xs">
         <Pressable
           className={`rounded-xl px-xl py-lg ${selected === "inbox" ? "bg-secondary" : ""}`}
           onPress={() => handleOptionPress("inbox")}

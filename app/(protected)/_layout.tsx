@@ -30,7 +30,7 @@ export default function ProtectedLayout() {
       </Stack>
       <View className="absolute bottom-0 right-0 px-xl py-lg">
         <Button
-          type="icon"
+          contentType="icon"
           iconName="add"
           onPress={() => router.push("/createTodo")}
         />

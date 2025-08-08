@@ -13,7 +13,11 @@ export default function Settings() {
         <Header text={authState.user?.email} />
         <View className="flex-1"></View>
         <View className="justify-center gap-lg">
-          <Button type="text" label="sign out" onPress={authState.logOut} />
+          <Button
+            contentType="text"
+            label="sign out"
+            onPress={authState.logOut}
+          />
         </View>
       </View>
     </SafeAreaView>

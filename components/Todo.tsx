@@ -12,6 +12,7 @@ import { db } from "@/utilities/database";
 import CheckBox from "./CheckBox";
 import Button from "./Button";
 import DateSelect from "./DateSelect";
+import useTodoRemovalAnimation from "@/hooks/useTodoRemovalAnimation";
 
 export default function Todo({
   id,
@@ -24,52 +25,20 @@ export default function Todo({
   onDrag?: () => void;
   dragActive?: boolean;
 }) {
-  const opacityAnimation = useAnimatedValue(1);
-  const heightAnimation = useAnimatedValue(40);
   const [expanded, setExpanded] = useState<boolean>(false);
   const [showDateSelect, setShowDateSelect] = useState<boolean>(false);
   const [todoDate, setTodoDate] = useState<string>("");
+  const { opacityAnimation, heightAnimation, animateRemoval } =
+    useTodoRemovalAnimation();
 
   const handleDelete = () => {
-    LayoutAnimation.configureNext(
-      LayoutAnimation.create(300, LayoutAnimation.Types.spring),
-    );
-
-    Animated.stagger(200, [
-      Animated.timing(opacityAnimation, {
-        toValue: 0,
-        duration: 200,
-        useNativeDriver: false,
-      }),
-      Animated.timing(heightAnimation, {
-        toValue: 0,
-        duration: 300,
-        useNativeDriver: false,
-      }),
-    ]).start(() => {
-      db.transact([db.tx.todos[id].delete()]);
-    });
+    animateRemoval(() => db.transact([db.tx.todos[id].delete()]));
   };
 
   const handleCheck = () => {
-    LayoutAnimation.configureNext(
-      LayoutAnimation.create(300, LayoutAnimation.Types.spring),
+    animateRemoval(() =>
+      db.transact([db.tx.todos[id].update({ complete: true })]),
     );
-
-    Animated.stagger(200, [
-      Animated.timing(opacityAnimation, {
-        toValue: 0,
-        duration: 200,
-        useNativeDriver: false,
-      }),
-      Animated.timing(heightAnimation, {
-        toValue: 0,
-        duration: 300,
-        useNativeDriver: false,
-      }),
-    ]).start(() => {
-      db.transact([db.tx.todos[id].update({ complete: true })]);
-    });
   };
 
   const handleExpand = () => {

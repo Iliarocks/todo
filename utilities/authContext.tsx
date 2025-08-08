@@ -9,8 +9,8 @@ type AuthState = {
   code: string;
   setCode: (code: string) => void;
   sendCode: () => void;
-  logIn: () => void;
-  logOut: () => void;
+  signIn: () => void;
+  signOut: () => void;
   user: User | null | undefined;
   isLoading: boolean;
   error: any;
@@ -22,8 +22,8 @@ export const AuthContext = createContext<AuthState>({
   code: "",
   setCode: (code: string) => {},
   sendCode: () => {},
-  logIn: () => {},
-  logOut: () => {},
+  signIn: () => {},
+  signOut: () => {},
   user: null,
   isLoading: true,
   error: null,
@@ -46,7 +46,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
       });
   };
 
-  const logIn = () => {
+  const signIn = () => {
     db.auth
       .signInWithMagicCode({ email, code })
       .then(() => {
@@ -57,7 +57,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
       });
   };
 
-  const logOut = () => {
+  const signOut = () => {
     db.auth.signOut();
     setEmail("");
     setCode("");
@@ -76,8 +76,8 @@ export function AuthProvider({ children }: PropsWithChildren) {
         code,
         setCode,
         sendCode,
-        logIn,
-        logOut,
+        signIn,
+        signOut,
         user,
         isLoading,
         error,

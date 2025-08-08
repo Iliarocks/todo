@@ -16,7 +16,7 @@ export default function Settings() {
           <Button
             contentType="text"
             label="sign out"
-            onPress={authState.logOut}
+            onPress={authState.signOut}
           />
         </View>
       </View>

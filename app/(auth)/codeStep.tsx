@@ -23,7 +23,7 @@ export default function EmailStep() {
       </View>
       <View className="flex-row items-center justify-between py-lg">
         <Button contentType="text" label="back" onPress={() => router.back()} />
-        <Button contentType="text" label="begin" onPress={authContext.logIn} />
+        <Button contentType="text" label="begin" onPress={authContext.signIn} />
       </View>
     </View>
   );

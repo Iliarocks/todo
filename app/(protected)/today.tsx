@@ -7,8 +7,6 @@ import { View } from "react-native";
 export default function Index() {
   const user = useLoggedInUser();
 
-  if (!user) return null;
-
   const query = {
     todos: {
       $: {

@@ -1,13 +1,13 @@
 import { Redirect, router, Stack } from "expo-router";
 import { View } from "react-native";
 import Button from "@/components/Button";
-import React, { useContext } from "react";
-import { AuthContext } from "@/utilities/authContext";
+import React from "react";
+import { db } from "@/utilities/database";
 
 export default function ProtectedLayout() {
-  const authState = useContext(AuthContext);
+  const user = db.useUser();
 
-  if (!authState.user) return <Redirect href="/emailStep" />;
+  if (!user) return <Redirect href="/emailStep" />;
 
   return (
     <React.Fragment>

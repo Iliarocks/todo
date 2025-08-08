@@ -1,14 +1,13 @@
 import { Redirect, Stack } from "expo-router";
-import React, { useContext } from "react";
-import { AuthContext } from "@/utilities/authContext";
+import { db } from "@/utilities/database";
 
 export default function AuthLayout() {
-  const authState = useContext(AuthContext);
+  const user = db.useUser();
 
-  if (authState.user) return <Redirect href="/" />;
+  if (user) return <Redirect href="/" />;
 
   return (
-    <React.Fragment>
+    <>
       <Stack
         screenOptions={{
           headerShown: false,
@@ -17,6 +16,6 @@ export default function AuthLayout() {
         <Stack.Screen name="emailStep" />
         <Stack.Screen name="codeStep" />
       </Stack>
-    </React.Fragment>
+    </>
   );
 }

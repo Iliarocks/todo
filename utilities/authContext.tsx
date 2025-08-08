@@ -1,6 +1,5 @@
 import { useRouter } from "expo-router";
 import { createContext, PropsWithChildren, useState } from "react";
-import { User } from "@instantdb/react-native";
 import { db } from "./database";
 
 type AuthState = {
@@ -11,9 +10,6 @@ type AuthState = {
   sendCode: () => void;
   signIn: () => void;
   signOut: () => void;
-  user: User | null | undefined;
-  isLoading: boolean;
-  error: any;
 };
 
 export const AuthContext = createContext<AuthState>({
@@ -24,13 +20,10 @@ export const AuthContext = createContext<AuthState>({
   sendCode: () => {},
   signIn: () => {},
   signOut: () => {},
-  user: null,
-  isLoading: true,
-  error: null,
 });
 
 export function AuthProvider({ children }: PropsWithChildren) {
-  const { isLoading, user, error } = db.useAuth();
+  const { isLoading } = db.useAuth();
   const [email, setEmail] = useState<string>("");
   const [code, setCode] = useState<string>("");
   const router = useRouter();
@@ -78,9 +71,6 @@ export function AuthProvider({ children }: PropsWithChildren) {
         sendCode,
         signIn,
         signOut,
-        user,
-        isLoading,
-        error,
       }}
     >
       {children}

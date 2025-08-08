@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import { COLOR } from "@/constants/colors";
+import { COLOR } from "@/constants/color";
 import { FONT } from "@/constants/font";
 import { FONT_SIZE } from "@/constants/font-size";
 import { LINE_HEIGHT } from "@/constants/line-height";

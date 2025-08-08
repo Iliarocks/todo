@@ -51,5 +51,20 @@ function getFont({ style }: { style: Style }) {
 }
 
 function getFontSize({ style, size }: { style: Style; size: Size }) {
-  return `text-${style}-${size}`;
+  const fontSizes = {
+    title: {
+      sm: "text-title-sm",
+      md: "text-title-md",
+      lg: "text-title-lg",
+      xl: "text-title-xl",
+    },
+    body: {
+      sm: "text-body-sm",
+      md: "text-body-md",
+      lg: "text-body-lg",
+      xl: "text-body-xl",
+    },
+  };
+  
+  return fontSizes[style][size];
 }

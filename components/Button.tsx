@@ -3,40 +3,51 @@ import { Pressable } from "react-native";
 import colors from "../constants/Colors";
 import CustomText from "./CustomText";
 
-type Type = "text" | "icon";
-type IconName = "add" | "tag";
+type ContentType = "text" | "icon";
+type Type = "primary" | "secondary";
+type IconName = "add" | "sell" | "calendar-month" | "delete";
 
 export default function Button({
-  type,
+  contentType,
+  type = "primary",
   onPress,
   label,
   iconName,
 }: {
-  type: Type;
+  contentType: ContentType;
+  type?: Type;
   onPress: () => void;
   label?: string;
   iconName?: IconName;
 }) {
   return (
     <Pressable
-      className="flex flex-row justify-center rounded-xl bg-primary px-xl py-md"
+      className={`items-center justify-center rounded-xl ${type === "primary" ? "bg-primary px-md py-md" : "bg-secondary px-sm py-sm"}`}
       onPress={onPress}
     >
-      {type === "text" ? (
-        <TextButton label={label!} />
+      {contentType === "text" ? (
+        <TextButton label={label!} type={type} />
       ) : (
-        <IconButton iconName={iconName!} />
+        <IconButton iconName={iconName!} type={type} />
       )}
     </Pressable>
   );
 }
 
-function TextButton({ label }: { label: string }) {
-  return <CustomText color="secondary">{label}</CustomText>;
+function TextButton({ label, type }: { label: string; type: Type }) {
+  return (
+    <CustomText color={type === "primary" ? "primary" : "secondary"}>
+      {label}
+    </CustomText>
+  );
 }
 
-function IconButton({ iconName }: { iconName: IconName }) {
+function IconButton({ iconName, type }: { iconName: IconName; type: Type }) {
   return (
-    <MaterialIcons name={iconName} size={24} color={colors["secondary-text"]} />
+    <MaterialIcons
+      name={iconName}
+      size={type === "primary" ? 24 : 16}
+      color={colors["secondary-text"]}
+    />
   );
 }

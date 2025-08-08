@@ -4,7 +4,9 @@ import { User } from "@instantdb/react-native";
 import { db } from "./database";
 
 type AuthState = {
+  email: string;
   setEmail: (email: string) => void;
+  code: string;
   setCode: (code: string) => void;
   sendCode: () => void;
   logIn: () => void;
@@ -15,7 +17,9 @@ type AuthState = {
 };
 
 export const AuthContext = createContext<AuthState>({
+  email: "",
   setEmail: (email: string) => {},
+  code: "",
   setCode: (code: string) => {},
   sendCode: () => {},
   logIn: () => {},
@@ -55,6 +59,8 @@ export function AuthProvider({ children }: PropsWithChildren) {
 
   const logOut = () => {
     db.auth.signOut();
+    setEmail("");
+    setCode("");
     router.replace("/emailStep");
   };
 
@@ -65,7 +71,9 @@ export function AuthProvider({ children }: PropsWithChildren) {
   return (
     <AuthContext.Provider
       value={{
+        email,
         setEmail,
+        code,
         setCode,
         sendCode,
         logIn,

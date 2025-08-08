@@ -2,11 +2,13 @@ import { TextInput, KeyboardTypeOptions } from "react-native";
 
 export default function CustomTextInput({
   onChangeText,
-  autoFocus,
+  value,
+  autoFocus = false,
   keyboardType = "default",
 }: {
   onChangeText: (text: string) => void;
-  autoFocus: boolean;
+  value: string;
+  autoFocus?: boolean;
   keyboardType?: KeyboardTypeOptions;
 }) {
   return (
@@ -15,6 +17,8 @@ export default function CustomTextInput({
       autoFocus={autoFocus}
       onChangeText={(text) => onChangeText(text)}
       keyboardType={keyboardType}
+      value={value}
+      autoCapitalize="none"
     />
   );
 }

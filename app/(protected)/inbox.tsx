@@ -1,15 +1,31 @@
-import { View } from "react-native";
 import Header from "@/components/Header";
-import Todo from "@/components/Todo";
+import TodoList from "@/components/TodoList";
+import { db } from "@/utilities/database";
+import useLoggedInUser from "@/utilities/useLoggedInUser";
+import { View } from "react-native";
 
-export default function Index() {
+export default function Inbox() {
+  const user = useLoggedInUser();
+
+  const query = {
+    todos: {
+      $: {
+        where: {
+          date: "",
+          "user.id": user.id,
+          complete: false,
+        },
+      },
+    },
+  };
+  const { isLoading, error, data } = db.useQuery(query);
+
+  if (isLoading || error) return null;
+
   return (
     <View className="flex-1 bg-background px-xl">
       <Header text="inbox" />
-      <View className="flex-1 py-sm">
-        <Todo text="meditate" />
-        <Todo text="study japanese" />
-      </View>
+      <TodoList todos={Object.values(data.todos)} />
     </View>
   );
 }

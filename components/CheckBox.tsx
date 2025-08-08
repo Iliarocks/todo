@@ -1,27 +1,30 @@
-import Animated, {
-  useAnimatedStyle,
-  withTiming,
-} from "react-native-reanimated";
-import colors from "../constants/Colors";
+import { Pressable, Animated, useAnimatedValue } from "react-native";
+import Colors from "@/constants/Colors";
 
-export default function CheckBox({
-  checked,
-  onPress,
-}: {
-  checked: boolean;
-  onPress: () => void;
-}) {
-  const animation = useAnimatedStyle(() => {
-    return {
-      backgroundColor: withTiming(checked ? colors["primary"] : "transparent"),
-    };
-  }, [checked]);
+export default function CheckBox({ onCheck }: { onCheck: () => void }) {
+  const checkBoxAnimation = useAnimatedValue(0);
+
+  const checkBoxInterpolation = checkBoxAnimation.interpolate({
+    inputRange: [0, 1],
+    outputRange: [Colors.background, Colors.secondary],
+  });
+
+  const handleCheck = () => {
+    Animated.timing(checkBoxAnimation, {
+      toValue: 1,
+      duration: 200,
+      useNativeDriver: false,
+    }).start(() => onCheck());
+  };
 
   return (
-    <Animated.View
-      style={animation}
-      className={`h-xl w-xl rounded-lg border-[2px] border-primary`}
-      onTouchEnd={onPress}
-    ></Animated.View>
+    <Pressable onPress={handleCheck}>
+      <Animated.View
+        className="h-xl w-xl rounded-xl border-[2px] border-secondary"
+        style={{
+          backgroundColor: checkBoxInterpolation,
+        }}
+      />
+    </Pressable>
   );
 }

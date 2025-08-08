@@ -14,11 +14,16 @@ export default function EmailStep() {
         <CustomText>enter your email to begin</CustomText>
         <CustomTextInput
           onChangeText={authContext.setEmail}
-          autoFocus={false}
+          autoFocus={true}
+          value={authContext.email}
         />
       </View>
       <View className="flex-row items-center justify-end py-lg">
-        <Button type="text" label="next" onPress={authContext.sendCode} />
+        <Button
+          contentType="text"
+          label="next"
+          onPress={authContext.sendCode}
+        />
       </View>
     </View>
   );

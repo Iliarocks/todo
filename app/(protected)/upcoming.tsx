@@ -17,6 +17,9 @@ export default function Index() {
           ],
           complete: false,
         },
+        order: {
+          sortOrder: "asc",
+        },
       },
     },
   };

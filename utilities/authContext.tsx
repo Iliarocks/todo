@@ -38,22 +38,22 @@ export function AuthProvider({ children }: PropsWithChildren) {
   const sendCode = () => {
     db.auth
       .sendMagicCode({ email })
-      .catch((err) => {
-        alert("Uh oh :" + err.body?.message);
-      })
       .then(() => {
         router.push("/codeStep");
+      })
+      .catch((err) => {
+        alert("Uh oh :" + err.body?.message);
       });
   };
 
   const logIn = () => {
     db.auth
       .signInWithMagicCode({ email, code })
-      .catch((err) => {
-        alert("Uh oh :" + err.body?.message);
-      })
       .then(() => {
         router.replace("/");
+      })
+      .catch((err) => {
+        alert("Uh oh :" + err.body?.message);
       });
   };
 

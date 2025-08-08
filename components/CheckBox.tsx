@@ -24,7 +24,7 @@ export default function CheckBox({ onCheck }: { onCheck: () => void }) {
         style={{
           backgroundColor: checkBoxInterpolation,
         }}
-      ></Animated.View>
+      />
     </Pressable>
   );
 }

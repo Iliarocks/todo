@@ -23,7 +23,7 @@ export default function Index() {
   };
   const { isLoading, error, data } = db.useQuery(query);
 
-  if (isLoading || !data || error) return null;
+  if (isLoading || error) return null;
 
   return (
     <View className="flex-1 bg-background px-xl">

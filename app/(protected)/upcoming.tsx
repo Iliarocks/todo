@@ -1,14 +1,11 @@
 import Header from "@/components/Header";
 import TodoList from "@/components/TodoList";
-import { AuthContext } from "@/utilities/authContext";
 import { db } from "@/utilities/database";
-import { useContext } from "react";
+import useLoggedInUser from "@/utilities/useLoggedInUser";
 import { View } from "react-native";
 
 export default function Index() {
-  const { user } = useContext(AuthContext);
-
-  if (!user) return null;
+  const user = useLoggedInUser();
 
   const query = {
     todos: {

@@ -1,17 +1,16 @@
 import Button from "@/components/Button";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { SafeAreaView, View } from "react-native";
 import CustomTextInput from "@/components/CustomTextInput";
 import { db } from "@/utilities/database";
 import { id } from "@instantdb/react-native";
-import { AuthContext } from "@/utilities/authContext";
 import { useRouter } from "expo-router";
 import DateSelect from "@/components/DateSelect";
 
 export default function CreateTodo() {
   const [label, setLabel] = useState<string>("");
   const [date, setDate] = useState<string>("");
-  const { user } = useContext(AuthContext);
+  const user = db.useUser();
   const router = useRouter();
 
   const pushTodo = () => {

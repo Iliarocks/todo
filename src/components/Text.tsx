@@ -11,7 +11,7 @@ interface CustomText {
   style?: Style;
   size?: Size;
   decoration?: Decoration;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export default function CustomText({

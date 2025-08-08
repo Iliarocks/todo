@@ -1,11 +1,4 @@
-import {
-  View,
-  Pressable,
-  Modal,
-  Animated,
-  useAnimatedValue,
-  LayoutAnimation,
-} from "react-native";
+import { View, Pressable, Modal, Animated } from "react-native";
 import { useState } from "react";
 import CustomText from "./CustomText";
 import { db } from "@/utilities/database";

@@ -1,23 +1,20 @@
 /** @type {import('tailwindcss').Config} */
-import colors from "./constants/Colors";
-import spacing from "./constants/Spacing";
-import fontSize from "./constants/FontSize";
-import lineHeight from "./constants/LineHeight";
+import { COLOR } from "@/constants/colors";
+import { FONT } from "@/constants/font";
+import { FONT_SIZE } from "@/constants/font-size";
+import { LINE_HEIGHT } from "@/constants/line-height";
+import { SPACING } from "@/constants/spacing";
 
 module.exports = {
-  // NOTE: Update this to include the paths to all files that contain Nativewind classes.
-  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
+  content: ["./src/app/**/*.{ts,tsx}", "./src/components/**/*.{ts,tsx}"],
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
-      colors,
-      spacing,
-      fontSize,
-      lineHeight,
-      fontFamily: {
-        "roboto-mono-md": "RobotoMono-Medium",
-        "roboto-mono-bd": "RobotoMono-Bold",
-      },
+      colors: COLOR,
+      fontFamily: FONT,
+      fontSize: FONT_SIZE,
+      lineHeight: LINE_HEIGHT,
+      spacing: SPACING,
     },
     plugins: [],
   },

@@ -1,4 +1,4 @@
-export default {
+export const FONT_SIZE = {
   "body-lg": "20px",
   "body-md": "18px",
   "body-sm": "16px",

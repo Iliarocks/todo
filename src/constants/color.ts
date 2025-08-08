@@ -1,4 +1,4 @@
-export default {
+export const COLOR = {
   background: "#F2F0EF",
   primary: "#CCCBCA",
   secondary: "#A6A4A4",

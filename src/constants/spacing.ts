@@ -1,4 +1,4 @@
-export default {
+export const SPACING = {
   "4xs": "1px",
   "3xs": "2px",
   "2xs": "4px",

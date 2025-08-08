@@ -1,8 +1,7 @@
+import CustomText from "@/components/Text";
+import { COLOR } from "@/constants/color";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Pressable } from "react-native";
-import colors from "../constants/Colors";
-import CustomText from "./CustomText";
-
 type ContentType = "text" | "icon";
 type Type = "primary" | "secondary";
 type IconName = "add" | "sell" | "calendar-month" | "delete";
@@ -47,7 +46,7 @@ function IconButton({ iconName, type }: { iconName: IconName; type: Type }) {
     <MaterialIcons
       name={iconName}
       size={type === "primary" ? 24 : 16}
-      color={colors["secondary-text"]}
+      color={COLOR["secondary-text"]}
     />
   );
 }

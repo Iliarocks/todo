@@ -1,31 +1,19 @@
+import "@/assets/global.css";
+import ScreenView from "@/components/ScreenView";
+import { AuthProvider } from "@/context/AuthContext";
 import { Stack } from "expo-router";
-import { SafeAreaView } from "react-native";
-import "../assets/global.css";
-import { AuthProvider } from "@/utilities/authContext";
 
 export default function RootLayout() {
+  const options = { animation: "none" } as const;
+
   return (
     <AuthProvider>
-      <SafeAreaView className="flex-1 bg-background">
-        <Stack
-          screenOptions={{
-            headerShown: false,
-          }}
-        >
-          <Stack.Screen
-            name="(auth)"
-            options={{
-              animation: "none",
-            }}
-          />
-          <Stack.Screen
-            name="(protected)"
-            options={{
-              animation: "none",
-            }}
-          />
+      <ScreenView safe>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="(auth)" options={options} />
+          <Stack.Screen name="(app)" options={options} />
         </Stack>
-      </SafeAreaView>
+      </ScreenView>
     </AuthProvider>
   );
 }

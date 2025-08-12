@@ -1,5 +1,3 @@
-// Docs: https://www.instantdb.com/docs/modeling-data
-
 import { i } from "@instantdb/react-native";
 
 const _schema = i.schema({
@@ -9,13 +7,13 @@ const _schema = i.schema({
       url: i.string(),
     }),
     $users: i.entity({
-      email: i.string().unique().indexed().optional(),
+      email: i.string().unique().indexed(),
     }),
     todos: i.entity({
       label: i.string().indexed(),
       date: i.string().indexed(),
       complete: i.boolean().indexed(),
-      sortOrder: i.number().indexed(),
+      position: i.string().indexed(),
     }),
   },
   links: {
@@ -24,10 +22,8 @@ const _schema = i.schema({
       reverse: { on: "$users", has: "many", label: "todos" },
     },
   },
-  rooms: {},
 });
 
-// This helps Typescript display nicer intellisense
 type _AppSchema = typeof _schema;
 interface AppSchema extends _AppSchema {}
 const schema: AppSchema = _schema;

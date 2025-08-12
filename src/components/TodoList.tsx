@@ -1,23 +1,50 @@
-import Todo from "@/components/Todo";
-import { InstaQLEntity } from "@instantdb/react-native";
+import { InstaQLEntity } from "@instantdb/react";
 import { AppSchema } from "@/instant.schema";
 import DraggableFlatList, {
   RenderItemParams,
 } from "react-native-draggable-flatlist";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import Todo from "@/components/Todo";
 import { db } from "@/utilities/database";
+import { generateKeyBetween } from "fractional-indexing";
+import * as Haptics from "expo-haptics";
 
 type TodoType = InstaQLEntity<AppSchema, "todos">;
 
-export default function TodoList({ todos }: { todos: TodoType[] }) {
-  const handleDragEnd = ({ data }: { data: TodoType[] }) => {
-    const updates = data.map((todo, index) => {
-      return db.tx.todos[todo.id].update({ sortOrder: index * 1000 });
-    });
+interface TodoListProps {
+  todos: TodoType[];
+}
 
-    if (updates.length > 0) {
-      db.transact(updates);
+export default function TodoList({ todos }: TodoListProps) {
+  const handleDragEnd = async ({
+    data,
+    from,
+    to,
+  }: {
+    data: TodoType[];
+    from: number;
+    to: number;
+  }) => {
+    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+
+    if (from === to) return;
+
+    let newPosition: string;
+
+    if (to === 0) {
+      newPosition = generateKeyBetween(null, data[1].position);
+    } else if (to === data.length - 1) {
+      newPosition = generateKeyBetween(data[data.length - 2].position, null);
+    } else {
+      const prevIndex = from < to ? to : to - 1;
+      const nextIndex = from < to ? to + 1 : to;
+      newPosition = generateKeyBetween(
+        data[prevIndex].position,
+        data[nextIndex].position,
+      );
     }
+
+    db.transact([db.tx.todos[data[to].id].update({ position: newPosition })]);
   };
 
   const renderItem = ({ item, drag, isActive }: RenderItemParams<TodoType>) => {
@@ -32,7 +59,7 @@ export default function TodoList({ todos }: { todos: TodoType[] }) {
   };
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView className="flex-1">
       <DraggableFlatList
         data={todos}
         onDragEnd={handleDragEnd}

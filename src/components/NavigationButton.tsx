@@ -17,16 +17,18 @@ export default function NavigationButton({
 }: NavigationButton) {
   const router = useRouter();
 
-  const textStyles = {
-    sm: <Text>{children}</Text>,
-    md: <Text size="md">{children}</Text>,
-    lg: <Text type="title" size="lg">{children}</Text>,
-    xl: <Text type="title" size="xl">{children}</Text>,
-  };
+  const textTypes = {
+    sm: "body",
+    md: "body",
+    lg: "title",
+    xl: "title",
+  } as const;
 
   return (
-    <Pressable onPress={() => router.navigate(href)} >
-      {textStyles[size]}
+    <Pressable onPress={() => router.navigate(href)}>
+      <Text size={size} type={textTypes[size]}>
+        {children}
+      </Text>
     </Pressable>
   );
 }

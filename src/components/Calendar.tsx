@@ -52,7 +52,7 @@ export default function Calendar({
     const days: number[][] = new Array(DAYS_IN_WEEK).fill(null).map(() => []);
 
     for (let i = 0; i < firstWeekDay; i++) {
-      days[i].push(i - firstWeekDay);
+      days[i].push(-1);
     }
 
     for (let i = 0; i < daysInMonth; i++) {
@@ -69,6 +69,7 @@ export default function Calendar({
       return (
         <DayCell
           date={d}
+          isVisible={day === -1}
           isSelected={isSelected}
           onPress={onDateSelect}
           key={key}
@@ -106,10 +107,10 @@ export default function Calendar({
   });
 
   return (
-    <View className="bg-neutral-0 gap-lg rounded-sm p-md">
+    <View className="bg-neutral-0 gap-md rounded-sm p-md">
       <View className="flex-row justify-between">
         <Text>
-          {MONTH_NAMES[month]} {year}
+          {MONTH_NAMES[month]} {year}{" "}
         </Text>
       </View>
       <GestureDetector gesture={swipeGesture}>
@@ -123,25 +124,25 @@ export default function Calendar({
 
 interface DayCellProps {
   date: Date;
+  isVisible: boolean;
   isSelected: boolean;
   onPress: (date: string) => void;
 }
 
-function DayCell({ date, isSelected, onPress }: DayCellProps) {
+function DayCell({ date, isVisible, isSelected, onPress }: DayCellProps) {
   const day = date.getDate();
   const invisibleStyles = "invisible";
-  const defaultStyles = "p-xs rounded-sm items-center";
+  const defaultStyles = "p-xs rounded-sm items-center aspect-square";
   const activeStyles = "bg-primary-5";
 
   const handlePress = () => {
-    console.log(date.toISOString());
     onPress(date.toISOString());
   };
 
   return (
     <Pressable
       onPress={handlePress}
-      className={`${defaultStyles} ${day === 0 && invisibleStyles} ${isSelected && activeStyles}`}
+      className={`${defaultStyles} ${isVisible && invisibleStyles} ${isSelected && activeStyles}`}
     >
       <Text>{day}</Text>
     </Pressable>

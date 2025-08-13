@@ -27,7 +27,11 @@ export default function Inbox() {
     <ScreenView>
       <Header>inbox</Header>
       <TodoList
-        todos={data.todos.sort((a, b) => a.position.localeCompare(b.position))}
+        todos={data.todos.sort((a, b) => {
+          if (a.position < b.position) return -1;
+          if (a.position > b.position) return 1;
+          return 0;
+        })}
       />
     </ScreenView>
   );

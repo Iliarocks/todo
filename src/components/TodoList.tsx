@@ -7,7 +7,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Todo from "@/components/Todo";
 import { db } from "@/utilities/database";
 import { generateKeyBetween } from "fractional-indexing";
-import * as Haptics from "expo-haptics";
+import { HAPTIC_PATTERS } from "@/utilities/haptics";
 
 type TodoType = InstaQLEntity<AppSchema, "todos">;
 
@@ -16,7 +16,7 @@ interface TodoListProps {
 }
 
 export default function TodoList({ todos }: TodoListProps) {
-  const handleDragEnd = async ({
+  const handleDragEnd = ({
     data,
     from,
     to,
@@ -25,22 +25,25 @@ export default function TodoList({ todos }: TodoListProps) {
     from: number;
     to: number;
   }) => {
-    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    HAPTIC_PATTERS.navigate();
 
     if (from === to) return;
 
     let newPosition: string;
 
     if (to === 0) {
-      newPosition = generateKeyBetween(null, data[1].position);
+      newPosition = generateKeyBetween(null, data[1]?.position || null);
     } else if (to === data.length - 1) {
-      newPosition = generateKeyBetween(data[data.length - 2].position, null);
-    } else {
-      const prevIndex = from < to ? to : to - 1;
-      const nextIndex = from < to ? to + 1 : to;
       newPosition = generateKeyBetween(
-        data[prevIndex].position,
-        data[nextIndex].position,
+        data[data.length - 2]?.position || null,
+        null,
+      );
+    } else {
+      const prevIndex = from < to ? to - 1 : to;
+      const nextIndex = from < to ? to : to + 1;
+      newPosition = generateKeyBetween(
+        data[prevIndex]?.position || null,
+        data[nextIndex]?.position || null,
       );
     }
 

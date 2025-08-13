@@ -1,6 +1,6 @@
 import Text from "@/components/Text";
 import { Pressable, View } from "react-native";
-import * as Haptics from "expo-haptics";
+import { HAPTIC_PATTERS } from "@/utilities/haptics";
 import { db } from "@/utilities/database";
 import { useRouter } from "expo-router";
 
@@ -17,18 +17,18 @@ export default function Todo({ id, label, onDrag, dragActive }: TodoProps) {
   const styles = dragActive ? [baseStyles, dragStyles].join(" ") : baseStyles;
   const router = useRouter();
 
-  const handleCheck = async () => {
-    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+  const handleCheck = () => {
+    HAPTIC_PATTERS.success();
     db.transact(db.tx.todos[id].update({ complete: true }));
   };
 
-  const handlePress = async () => {
-    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+  const handlePress = () => {
+    HAPTIC_PATTERS.select();
     router.navigate({ pathname: "/edit-todo", params: { id } });
   };
 
-  const handleLongPress = async () => {
-    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+  const handleLongPress = () => {
+    HAPTIC_PATTERS.drag();
     onDrag();
   };
 

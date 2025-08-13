@@ -7,7 +7,7 @@ interface TextButton {
   children?: ReactNode;
 }
 export default function TextButton({ onPress, children }: TextButton) {
-  const styles = "items-center bg-primary p-md";
+  const styles = "items-center bg-primary-0 rounded-xs p-md";
 
   return (
     <Pressable className={styles} onPress={onPress}>

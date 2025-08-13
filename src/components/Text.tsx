@@ -3,7 +3,7 @@ import { Text } from "react-native";
 
 type Type = "title" | "body";
 type Style = "primary" | "secondary";
-type Size = "sm" | "md" | "lg" | "xl";
+type Size = "xs" | "sm" | "md" | "lg" | "xl";
 type Decoration = "no-underline" | "underline";
 
 interface CustomText {
@@ -33,12 +33,14 @@ export default function CustomText({
 function getFontSize(type: Type, size: Size) {
   const fontSizes = {
     title: {
+      xs: "text-title-sm",
       sm: "text-title-sm",
       md: "text-title-md",
       lg: "text-title-lg",
       xl: "text-title-xl",
     },
     body: {
+      xs: "text-body-xs",
       sm: "text-body-sm",
       md: "text-body-md",
       lg: "text-body-lg",
@@ -70,8 +72,8 @@ function getLineHeight(type: Type, size: Size) {
 
 function getColor(style: Style) {
   const colors = {
-    primary: "text-primary-text",
-    secondary: "text-secondary-text",
+    primary: "text-text-0",
+    secondary: "text-text-5",
   };
 
   return colors[style];

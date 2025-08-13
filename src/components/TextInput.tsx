@@ -13,7 +13,7 @@ export default function CustomTextInput({
 }: CustomTextInput) {
   return (
     <TextInput
-      className="bg-primary p-md font-roboto-mono-md text-body-sm leading-base text-primary-text antialiased"
+      className="bg-neutral-5 text-text-0 rounded-xs p-md font-roboto-mono-md text-body-sm leading-base antialiased"
       value={value}
       onChangeText={(text) => onChangeText(text)}
       autoFocus={autoFocus}

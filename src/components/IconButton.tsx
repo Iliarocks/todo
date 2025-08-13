@@ -9,11 +9,11 @@ interface IconButton {
   onPress: () => void;
 }
 export default function IconButton({ icon, onPress }: IconButton) {
-  const styles = "p-md bg-primary grid place-content-center";
+  const styles = "p-md rounded-xs bg-primary-0";
 
   return (
     <Pressable className={styles} onPress={onPress}>
-      <MaterialIcons name={icon} size={24} color={COLOR["primary-text"]} />
+      <MaterialIcons name={icon} size={24} color={COLOR["text-0"]} />
     </Pressable>
   );
 }

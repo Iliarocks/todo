@@ -1,7 +1,6 @@
-import { View } from "react-native";
-import TextButton from "./TextButton";
-import { Calendar } from "react-native-calendars";
-import { COLOR } from "@/constants/color";
+import { Pressable, View } from "react-native";
+import Text from "./Text";
+import Calendar from "./Calendar";
 
 interface DateSelectProps {
   date: string;
@@ -10,31 +9,30 @@ interface DateSelectProps {
 
 export default function DateSelect({ date, onDateChange }: DateSelectProps) {
   return (
-    <View>
-      <TextButton onPress={() => onDateChange("")}>inbox</TextButton>
-      <Calendar
-        current={date}
-        hideDayNames={true}
-        hideExtraDays={true}
-        theme={{
-          backgroundColor: COLOR.secondary,
-          calendarBackground: COLOR.primary,
-          textSectionTitleColor: COLOR["secondary-text"],
-          selectedDayBackgroundColor: COLOR.secondary,
-          todayTextColor: COLOR["secondary-text"],
-          dayTextColor: COLOR["secondary-text"],
-          textDisabledColor: COLOR["secondary-text"],
-          monthTextColor: COLOR["secondary-text"],
-          arrowColor: COLOR["secondary-text"],
-        }}
-        onDayPress={(day) => onDateChange(day.dateString)}
-        markedDates={{
-          [date]: {
-            selected: true,
-            disableTouchEvent: true,
-          },
-        }}
-      />
+    <View className="bg-neutral-5 rounded-sm p-md">
+      <View className="gap-md">
+        <InboxSelect date={date} onDateChange={onDateChange} />
+        <Calendar selectedDate={date} onDateSelect={onDateChange} />
+      </View>
     </View>
+  );
+}
+
+interface InboxSelectProps {
+  date: string;
+  onDateChange: (date: string) => void;
+}
+
+function InboxSelect({ date, onDateChange }: InboxSelectProps) {
+  const isSelected = date === "";
+
+  return (
+    <Pressable
+      onPress={() => onDateChange("")}
+      className="bg-neutral-0 flex-row items-center justify-between rounded-sm p-md"
+    >
+      <Text>inbox</Text>
+      <View className={`size-xl rounded-sm ${isSelected && "bg-primary-5"}`} />
+    </Pressable>
   );
 }

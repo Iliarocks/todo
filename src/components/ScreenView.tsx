@@ -12,7 +12,7 @@ export default function ScreenView({
   className = "",
   children,
 }: ScreenViewProps) {
-  const baseStyles = "flex-1 bg-background";
+  const baseStyles = "flex-1 bg-neutral-0";
   const styles = [baseStyles, className].join(" ");
 
   if (safe) return <SafeAreaView className={styles}>{children}</SafeAreaView>;

@@ -54,7 +54,7 @@ export default function CreateTodo() {
         <DateSelect date={date} onDateChange={setDate} />
       </ScreenView>
       <View className="px-xl">
-        <TextButton onPress={pushTodo}>create</TextButton>
+        <TextButton onPress={pushTodo}>save</TextButton>
       </View>
     </ScreenView>
   );

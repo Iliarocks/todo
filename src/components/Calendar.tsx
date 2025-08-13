@@ -35,14 +35,18 @@ export default function Calendar({
   selectedDate,
   onDateSelect,
 }: CalendarProps) {
-  const initialDate = selectedDate === "" ? new Date() : new Date(selectedDate);
+  const currentDate = new Date();
+  const initialDate =
+    selectedDate === ""
+      ? new Date(currentDate.getFullYear(), currentDate.getMonth())
+      : new Date(selectedDate);
   const [date, setDate] = useState<Date>(initialDate);
-  const [month, setMonth] = useState<number>(initialDate.getMonth());
-  const [year, setYear] = useState<number>(initialDate.getFullYear());
+  const month = date.getMonth();
+  const year = date.getFullYear();
 
   // returns a 2D array of days in DAYS_IN_WEEK columns
-  const getDaysInMonth = () => {
-    const firstWeekDay = new Date(year, month, 1).getDay();
+  const getDaysInMonth = (year: number, month: number) => {
+    const firstWeekDay = new Date(year, month).getDay();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
 
     const days: number[][] = new Array(DAYS_IN_WEEK).fill(null).map(() => []);
@@ -58,23 +62,16 @@ export default function Calendar({
     return days;
   };
 
-  const formatDate = (year: number, month: number, day: number) => {
-    const m = String(month + 1).padStart(2, "0");
-    const d = String(day).padStart(2, "0");
-    return `${year}-${m}-${d}`;
-  };
-
-  const renderDays = () => {
-    const days = getDaysInMonth();
-
+  const renderDays = (days: number[][]) => {
     const dayConstructor = (day: number, key: number) => {
-      const dateString = formatDate(year, month, day);
-      const isSelected = dateString === selectedDate;
+      const d = new Date(year, month, day);
+      const isSelected = d.toISOString() === selectedDate;
       return (
         <DayCell
-          date={dateString}
+          date={d}
           isSelected={isSelected}
           onPress={onDateSelect}
+          key={key}
         />
       );
     };
@@ -90,23 +87,21 @@ export default function Calendar({
     });
   };
 
-  const changeMonth = (direction: number) => {
+  const navigateMonth = (direction: number) => {
     if (month + direction > MONTHS_IN_YEAR - 1) {
-      setMonth(0);
-      setYear(year + 1);
+      setDate(new Date(year + 1, 0));
     } else if (month + direction < 0) {
-      setMonth(MONTHS_IN_YEAR - 1);
-      setYear(year - 1);
+      setDate(new Date(year - 1, MONTHS_IN_YEAR - 1));
     } else {
-      setMonth(month + direction);
+      setDate(new Date(year, month + direction));
     }
   };
 
   const swipeGesture = Gesture.Pan().onFinalize((event) => {
     if (event.translationX > SWIPE_THRESHOLD) {
-      runOnJS(changeMonth)(-1);
+      runOnJS(navigateMonth)(-1);
     } else if (event.translationX < -SWIPE_THRESHOLD) {
-      runOnJS(changeMonth)(1);
+      runOnJS(navigateMonth)(1);
     }
   });
 
@@ -118,27 +113,34 @@ export default function Calendar({
         </Text>
       </View>
       <GestureDetector gesture={swipeGesture}>
-        <View className="flex-row justify-between">{renderDays()}</View>
+        <View className="flex-row justify-between">
+          {renderDays(getDaysInMonth(year, month))}
+        </View>
       </GestureDetector>
     </View>
   );
 }
 
 interface DayCellProps {
-  date: string;
+  date: Date;
   isSelected: boolean;
   onPress: (date: string) => void;
 }
 
 function DayCell({ date, isSelected, onPress }: DayCellProps) {
-  const day = Number(date.split("-")[2]);
+  const day = date.getDate();
   const invisibleStyles = "invisible";
   const defaultStyles = "p-xs rounded-sm items-center";
   const activeStyles = "bg-primary-5";
 
+  const handlePress = () => {
+    console.log(date.toISOString());
+    onPress(date.toISOString());
+  };
+
   return (
     <Pressable
-      onPress={() => onPress(date)}
+      onPress={handlePress}
       className={`${defaultStyles} ${day === 0 && invisibleStyles} ${isSelected && activeStyles}`}
     >
       <Text>{day}</Text>

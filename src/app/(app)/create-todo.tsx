@@ -31,7 +31,7 @@ export default function CreateTodo() {
       },
     });
 
-    const first = data.todos[0].position;
+    const first = data?.todos[0]?.position;
 
     const todo = {
       label: label,

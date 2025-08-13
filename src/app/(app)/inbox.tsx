@@ -15,9 +15,6 @@ export default function Inbox() {
           complete: false,
           "user.id": user.id,
         },
-        order: {
-          position: "asc",
-        },
       },
     },
   } as const;
@@ -29,7 +26,13 @@ export default function Inbox() {
   return (
     <ScreenView>
       <Header>inbox</Header>
-      <TodoList todos={data.todos} />
+      <TodoList
+        todos={data.todos.sort((a, b) => {
+          if (a.position < b.position) return -1;
+          if (a.position > b.position) return 1;
+          return 0;
+        })}
+      />
     </ScreenView>
   );
 }

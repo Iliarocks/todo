@@ -7,6 +7,7 @@ import {
   GestureDetector,
 } from "react-native-gesture-handler";
 import { runOnJS } from "react-native-reanimated";
+import { HAPTIC_PATTERS } from "@/utilities/haptics";
 
 const DAYS_IN_WEEK = 7;
 const MONTHS_IN_YEAR = 12;
@@ -98,16 +99,28 @@ export default function Calendar({
     }
   };
 
-  const swipeGesture = Gesture.Pan().onFinalize((event) => {
-    if (event.translationX > SWIPE_THRESHOLD) {
-      runOnJS(navigateMonth)(-1);
-    } else if (event.translationX < -SWIPE_THRESHOLD) {
-      runOnJS(navigateMonth)(1);
-    }
-  });
+  const triggerHaptic = () => {
+    HAPTIC_PATTERS.select();
+  };
+
+  const triggerSwipeHaptic = () => {
+    HAPTIC_PATTERS.navigate();
+  };
+
+  const swipeGesture = Gesture.Pan()
+    .onStart(() => {})
+    .onFinalize((event) => {
+      if (event.translationX > SWIPE_THRESHOLD) {
+        runOnJS(triggerSwipeHaptic)();
+        runOnJS(navigateMonth)(-1);
+      } else if (event.translationX < -SWIPE_THRESHOLD) {
+        runOnJS(triggerSwipeHaptic)();
+        runOnJS(navigateMonth)(1);
+      }
+    });
 
   return (
-    <View className="bg-neutral-0 gap-md rounded-sm p-md">
+    <View className="gap-md rounded-sm bg-neutral-0 p-md">
       <View className="flex-row justify-between">
         <Text>
           {MONTH_NAMES[month]} {year}{" "}
@@ -136,6 +149,7 @@ function DayCell({ date, isVisible, isSelected, onPress }: DayCellProps) {
   const activeStyles = "bg-primary-5";
 
   const handlePress = () => {
+    HAPTIC_PATTERS.select();
     onPress(date.toISOString().split("T")[0]);
   };
 

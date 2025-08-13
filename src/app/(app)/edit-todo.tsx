@@ -43,7 +43,7 @@ export default function EditTodo() {
 
   return (
     <ScreenView safe>
-      <Header>edit todo</Header>
+      <Header>edit</Header>
       <ScreenView className="gap-md px-xl">
         <TextInput value={label} onChangeText={setLabel} autoFocus />
         <DateSelect date={date} onDateChange={setDate} />

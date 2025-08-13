@@ -65,7 +65,7 @@ export default function Calendar({
   const renderDays = (days: number[][]) => {
     const dayConstructor = (day: number, key: number) => {
       const d = new Date(year, month, day);
-      const isSelected = d.toISOString() === selectedDate;
+      const isSelected = d.toISOString().split("T")[0] === selectedDate;
       return (
         <DayCell
           date={d}
@@ -136,7 +136,7 @@ function DayCell({ date, isVisible, isSelected, onPress }: DayCellProps) {
   const activeStyles = "bg-primary-5";
 
   const handlePress = () => {
-    onPress(date.toISOString());
+    onPress(date.toISOString().split("T")[0]);
   };
 
   return (

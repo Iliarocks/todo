@@ -59,7 +59,7 @@ export default function TodoList({ todos }: TodoListProps) {
   };
 
   return (
-    <GestureHandlerRootView className="flex-1">
+    <GestureHandlerRootView className="flex-1 justify-center">
       <DraggableFlatList
         data={todos}
         onDragEnd={handleDragEnd}

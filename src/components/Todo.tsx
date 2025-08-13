@@ -13,7 +13,7 @@ interface TodoProps {
 
 export default function Todo({ id, label, onDrag, dragActive }: TodoProps) {
   const baseStyles = "px-xl py-sm flex-row gap-md items-center";
-  const dragStyles = "bg-primary";
+  const dragStyles = "bg-neutral-5";
   const styles = dragActive ? [baseStyles, dragStyles].join(" ") : baseStyles;
   const router = useRouter();
 
@@ -36,13 +36,13 @@ export default function Todo({ id, label, onDrag, dragActive }: TodoProps) {
     <View className={styles}>
       <Pressable
         onPress={handleCheck}
-        className="h-lg w-lg border-[2px] border-secondary"
+        className="border-primary-0 h-lg w-lg rounded-sm border-[2px]"
       ></Pressable>
       <Pressable
         onPress={handlePress}
         onLongPress={handleLongPress}
         disabled={dragActive}
-        className="flex-grow"
+        className="flex-grow rounded-lg"
       >
         <Text>{label}</Text>
       </Pressable>

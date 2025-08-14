@@ -12,19 +12,6 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.anonymous.todo"
     },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./src/assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true,
-      "package": "com.anonymous.todo"
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./src/assets/images/favicon.png"
-    },
     "plugins": [
       "expo-router",
       [
@@ -48,6 +35,12 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "0ec6069c-c068-4a8d-8053-2c8c28449c72"
+      }
     }
   }
 }

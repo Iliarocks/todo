@@ -15,6 +15,19 @@ interface TodoListProps {
   todos: TodoType[];
 }
 
+function generateNewPosition(data: { position: string }[], to: number) {
+  if (to === 0) {
+    return generateKeyBetween(null, data[1]?.position || null);
+  }
+  if (to === data.length - 1) {
+    return generateKeyBetween(data[data.length - 2]?.position || null, null);
+  }
+
+  const prev = to - 1;
+  const next = to + 1;
+  return generateKeyBetween(data[prev].position, data[next].position);
+}
+
 export default function TodoList({ todos }: TodoListProps) {
   const handleDragEnd = ({
     data,
@@ -29,24 +42,7 @@ export default function TodoList({ todos }: TodoListProps) {
 
     if (from === to) return;
 
-    let newPosition: string;
-
-    if (to === 0) {
-      newPosition = generateKeyBetween(null, data[1]?.position || null);
-    } else if (to === data.length - 1) {
-      newPosition = generateKeyBetween(
-        data[data.length - 2]?.position || null,
-        null,
-      );
-    } else {
-      const prevIndex = from < to ? to - 1 : to;
-      const nextIndex = from < to ? to : to + 1;
-      newPosition = generateKeyBetween(
-        data[prevIndex]?.position || null,
-        data[nextIndex]?.position || null,
-      );
-    }
-
+    const newPosition = generateNewPosition(data, to);
     db.transact([db.tx.todos[data[to].id].update({ position: newPosition })]);
   };
 

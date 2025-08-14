@@ -9,7 +9,8 @@
     "web": "expo start --web",
     "lint": "expo lint",
     "doctor": "expo doctor",
-    "reset-project": "node ./scripts/reset-project.js"
+    "reset-project": "node ./scripts/reset-project.js",
+    "android": "expo run:android"
   },
   "dependencies": {
     "@expo-google-fonts/roboto-mono": "^0.4.0",

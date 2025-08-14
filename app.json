@@ -6,6 +6,7 @@
     "scheme": "oflo",
     "orientation": "portrait",
     "userInterfaceStyle": "dark",
+    "backgroundColor": "#353839",
 
     "icon": "./src/assets/images/icon.png",
 
@@ -25,7 +26,7 @@
           "image": "./src/assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#353839"
         }
       ],
       [

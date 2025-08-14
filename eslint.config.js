@@ -1,7 +1,6 @@
+import expoConfig from "eslint-config-expo/flat";
 import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript";
-
-const { defineConfig } = require("eslint/config");
-const expoConfig = require("eslint-config-expo/flat");
+import { defineConfig } from "eslint/config";
 
 module.exports = defineConfig([
   expoConfig,

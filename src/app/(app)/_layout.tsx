@@ -1,4 +1,4 @@
-import IconButton from "@/components/IconButton";
+import { IconButton } from "@/components/Buttons";
 import { AuthContext } from "@/context/AuthContext";
 import { Redirect, Stack, useRouter } from "expo-router";
 import { useContext } from "react";

@@ -1,4 +1,4 @@
-import IconButton from "@/components/IconButton";
+import { IconButton } from "@/components/Buttons";
 import { View } from "react-native";
 import NavigationButton from "./NavigationButton";
 

@@ -1,6 +1,6 @@
 import ScreenView from "@/components/ScreenView";
 import Text from "@/components/Text";
-import TextButton from "@/components/TextButton";
+import { TextButton } from "@/components/Buttons";
 import TextInput from "@/components/TextInput";
 import { AuthContext } from "@/context/AuthContext";
 import { useRouter } from "expo-router";

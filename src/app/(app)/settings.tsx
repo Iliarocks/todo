@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import ScreenView from "@/components/ScreenView";
-import TextButton from "@/components/TextButton";
+import { TextButton } from "@/components/Buttons";
 import { AuthContext } from "@/context/AuthContext";
 import { useUser } from "@/hooks/useUser";
 import { useContext } from "react";

@@ -1,7 +1,7 @@
 import DateSelect from "@/components/DateSelect";
 import Header from "@/components/Header";
 import ScreenView from "@/components/ScreenView";
-import TextButton from "@/components/TextButton";
+import { TextButton } from "@/components/Buttons";
 import TextInput from "@/components/TextInput";
 import { useUser } from "@/hooks/useUser";
 import { db, id } from "@/utilities/database";

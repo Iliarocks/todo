@@ -5,16 +5,12 @@ import { Pressable } from "react-native";
 
 type Size = "sm" | "md" | "lg" | "xl";
 
-interface NavigationButton {
+interface Link {
   href: Href;
   size?: Size;
   children?: ReactNode;
 }
-export default function NavigationButton({
-  href,
-  size = "sm",
-  children,
-}: NavigationButton) {
+export default function Link({ href, size = "sm", children }: Link) {
   const router = useRouter();
 
   const textTypes = {

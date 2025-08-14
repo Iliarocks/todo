@@ -3,6 +3,7 @@ import ScreenView from "@/components/ScreenView";
 import TodoList from "@/components/TodoList";
 import { useUser } from "@/hooks/useUser";
 import { db } from "@/utilities/database";
+import _ from "lodash";
 
 export default function Inbox() {
   const user = useUser();
@@ -26,13 +27,7 @@ export default function Inbox() {
   return (
     <ScreenView>
       <Header>inbox</Header>
-      <TodoList
-        todos={data.todos.sort((a, b) => {
-          if (a.position < b.position) return -1;
-          if (a.position > b.position) return 1;
-          return 0;
-        })}
-      />
+      <TodoList todos={_.orderBy(data.todos, ["position"], ["asc"])} />
     </ScreenView>
   );
 }

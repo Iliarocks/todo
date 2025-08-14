@@ -1,11 +1,11 @@
-import IconButton from "@/components/IconButton";
+import { IconButton } from "@/components/Buttons";
 import { View } from "react-native";
-import NavigationButton from "./NavigationButton";
+import Link from "@/components/Link";
 
 export default function Footer() {
   return (
     <View className="flex-row items-center justify-between px-xl py-lg">
-      <NavigationButton href="./settings">settings</NavigationButton>
+      <Link href="./settings">settings</Link>
       <View className="invisible">
         <IconButton icon="add" onPress={() => {}} />
       </View>

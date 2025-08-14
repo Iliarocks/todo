@@ -1,7 +1,7 @@
 import DateSelect from "@/components/DateSelect";
 import Header from "@/components/Header";
 import ScreenView from "@/components/ScreenView";
-import TextButton from "@/components/TextButton";
+import { TextButton } from "@/components/Buttons";
 import TextInput from "@/components/TextInput";
 import { useUser } from "@/hooks/useUser";
 import { db, id } from "@/utilities/database";
@@ -9,6 +9,7 @@ import { useRouter } from "expo-router";
 import { generateKeyBetween } from "fractional-indexing";
 import { useState } from "react";
 import { View } from "react-native";
+import _ from "lodash";
 
 export default function CreateTodo() {
   const [label, setLabel] = useState<string>("");
@@ -20,18 +21,15 @@ export default function CreateTodo() {
     const { data } = await db.queryOnce({
       todos: {
         $: {
-          limit: 1,
           where: {
             date,
-          },
-          order: {
-            position: "asc",
+            user: user.id,
           },
         },
       },
     });
 
-    const first = data?.todos[0]?.position;
+    const first = _.orderBy(data.todos, ["position"], ["asc"])[0]?.position;
 
     const todo = {
       label: label,

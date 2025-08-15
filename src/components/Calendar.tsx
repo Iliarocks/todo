@@ -77,7 +77,7 @@ interface DayCellProps {
 }
 
 function DayCell({ date, isOutside, isSelected, onPress }: DayCellProps) {
-  const baseStyles = "p-xs rounded-sm items-center aspect-square";
+  const baseStyles = "rounded-sm items-center p-xs";
   const invisibleStyles = isOutside ? "invisible" : "";
   const activeStyles = isSelected ? "bg-primary-5" : "";
 

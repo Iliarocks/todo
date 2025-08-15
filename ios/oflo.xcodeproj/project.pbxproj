@@ -8,32 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		21FC0E2347F9770CF68529C4 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DD8ED6C80467CC4E06077D /* ExpoModulesProvider.swift */; };
-		31356CCA513A793ABE2D1576 /* libPods-todo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2375CCDE28958901338EC70A /* libPods-todo.a */; };
-		3A2F6EFDCD1421F2993CE04B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = BB5CFA6ADE25DEC476DBE6CD /* PrivacyInfo.xcprivacy */; };
+		231644C0CDDA40493B5691AB /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E64B53BBF452D0FB50842 /* ExpoModulesProvider.swift */; };
+		272F689BB65F46DA8AE8E61D /* RobotoMono_700Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C5A4093E270474EA44FD0F9 /* RobotoMono_700Bold.ttf */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		6F541D85D75E4F529A1C48C2 /* RobotoMono_700Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4CB031BEEB141B1B13F43E9 /* RobotoMono_700Bold.ttf */; };
-		B909F18480284770AF614474 /* RobotoMono_500Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98895BFE7AD04B20A9A39244 /* RobotoMono_500Medium.ttf */; };
+		B1A000EC8D6D41DBAFBFD6AF /* RobotoMono_500Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4ECC806583C540E0A32532E0 /* RobotoMono_500Medium.ttf */; };
+		B4C6B132C514B287F54246A5 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DE74D32E667652845EDBCEFE /* PrivacyInfo.xcprivacy */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		EE4249000B5786309A3D145C /* libPods-oflo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F08F9A1F377C90C68BC3EB /* libPods-oflo.a */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13B07F961A680F5B00A75B9A /* todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = todo/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = todo/Info.plist; sourceTree = "<group>"; };
-		2375CCDE28958901338EC70A /* libPods-todo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-todo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		72DD8ED6C80467CC4E06077D /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-todo/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		98895BFE7AD04B20A9A39244 /* RobotoMono_500Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = RobotoMono_500Medium.ttf; path = "../node_modules/@expo-google-fonts/roboto-mono/500Medium/RobotoMono_500Medium.ttf"; sourceTree = "<group>"; };
-		A438DDB67FE0E981E967D1DA /* Pods-todo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todo.release.xcconfig"; path = "Target Support Files/Pods-todo/Pods-todo.release.xcconfig"; sourceTree = "<group>"; };
-		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = todo/SplashScreen.storyboard; sourceTree = "<group>"; };
+		0187560E0F291C92721C8260 /* Pods-oflo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oflo.release.xcconfig"; path = "Target Support Files/Pods-oflo/Pods-oflo.release.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* oflo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oflo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = oflo/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = oflo/Info.plist; sourceTree = "<group>"; };
+		37F08F9A1F377C90C68BC3EB /* libPods-oflo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-oflo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ECC806583C540E0A32532E0 /* RobotoMono_500Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = RobotoMono_500Medium.ttf; path = "../node_modules/@expo-google-fonts/roboto-mono/500Medium/RobotoMono_500Medium.ttf"; sourceTree = "<group>"; };
+		5C5A4093E270474EA44FD0F9 /* RobotoMono_700Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = RobotoMono_700Bold.ttf; path = "../node_modules/@expo-google-fonts/roboto-mono/700Bold/RobotoMono_700Bold.ttf"; sourceTree = "<group>"; };
+		7D9FAFDAE2A416F9729C9CD2 /* Pods-oflo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oflo.debug.xcconfig"; path = "Target Support Files/Pods-oflo/Pods-oflo.debug.xcconfig"; sourceTree = "<group>"; };
+		828E64B53BBF452D0FB50842 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-oflo/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = oflo/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		BB5CFA6ADE25DEC476DBE6CD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = todo/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		C4CB031BEEB141B1B13F43E9 /* RobotoMono_700Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = RobotoMono_700Bold.ttf; path = "../node_modules/@expo-google-fonts/roboto-mono/700Bold/RobotoMono_700Bold.ttf"; sourceTree = "<group>"; };
-		D7F8301E389BA1116B60FEC0 /* Pods-todo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-todo.debug.xcconfig"; path = "Target Support Files/Pods-todo/Pods-todo.debug.xcconfig"; sourceTree = "<group>"; };
+		DE74D32E667652845EDBCEFE /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = oflo/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = todo/AppDelegate.swift; sourceTree = "<group>"; };
-		F11748442D0722820044C1D9 /* todo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "todo-Bridging-Header.h"; path = "todo/todo-Bridging-Header.h"; sourceTree = "<group>"; };
+		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = oflo/AppDelegate.swift; sourceTree = "<group>"; };
+		F11748442D0722820044C1D9 /* oflo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "oflo-Bridging-Header.h"; path = "oflo/oflo-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,44 +41,62 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31356CCA513A793ABE2D1576 /* libPods-todo.a in Frameworks */,
+				EE4249000B5786309A3D145C /* libPods-oflo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13B07FAE1A68108700A75B9A /* todo */ = {
+		0FFDFE145596C1CB2C6804C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7D9FAFDAE2A416F9729C9CD2 /* Pods-oflo.debug.xcconfig */,
+				0187560E0F291C92721C8260 /* Pods-oflo.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		13B07FAE1A68108700A75B9A /* oflo */ = {
 			isa = PBXGroup;
 			children = (
 				F11748412D0307B40044C1D9 /* AppDelegate.swift */,
-				F11748442D0722820044C1D9 /* todo-Bridging-Header.h */,
+				F11748442D0722820044C1D9 /* oflo-Bridging-Header.h */,
 				BB2F792B24A3F905000567C9 /* Supporting */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				BB5CFA6ADE25DEC476DBE6CD /* PrivacyInfo.xcprivacy */,
+				DE74D32E667652845EDBCEFE /* PrivacyInfo.xcprivacy */,
 			);
-			name = todo;
-			sourceTree = "<group>";
-		};
-		1625FA60F61757B062630308 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D7F8301E389BA1116B60FEC0 /* Pods-todo.debug.xcconfig */,
-				A438DDB67FE0E981E967D1DA /* Pods-todo.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
+			name = oflo;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				2375CCDE28958901338EC70A /* libPods-todo.a */,
+				37F08F9A1F377C90C68BC3EB /* libPods-oflo.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		31F4A3BC51CD21D60E8795B3 /* oflo */ = {
+			isa = PBXGroup;
+			children = (
+				828E64B53BBF452D0FB50842 /* ExpoModulesProvider.swift */,
+			);
+			name = oflo;
+			sourceTree = "<group>";
+		};
+		4CAA8E543F79461CA3577C08 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4ECC806583C540E0A32532E0 /* RobotoMono_500Medium.ttf */,
+				5C5A4093E270474EA44FD0F9 /* RobotoMono_700Bold.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -91,13 +109,13 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* todo */,
+				13B07FAE1A68108700A75B9A /* oflo */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				EBD0EEF429DD4E93B78E414C /* Resources */,
-				1625FA60F61757B062630308 /* Pods */,
-				A6288DFEC31517A46AFA6204 /* ExpoModulesProviders */,
+				4CAA8E543F79461CA3577C08 /* Resources */,
+				0FFDFE145596C1CB2C6804C5 /* Pods */,
+				B9D13BA6DEC637D63FB5F4E7 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -107,15 +125,15 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* todo.app */,
+				13B07F961A680F5B00A75B9A /* oflo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A6288DFEC31517A46AFA6204 /* ExpoModulesProviders */ = {
+		B9D13BA6DEC637D63FB5F4E7 /* ExpoModulesProviders */ = {
 			isa = PBXGroup;
 			children = (
-				DB34F6AC144A2471574CB853 /* todo */,
+				31F4A3BC51CD21D60E8795B3 /* oflo */,
 			);
 			name = ExpoModulesProviders;
 			sourceTree = "<group>";
@@ -126,50 +144,32 @@
 				BB2F792C24A3F905000567C9 /* Expo.plist */,
 			);
 			name = Supporting;
-			path = todo/Supporting;
-			sourceTree = "<group>";
-		};
-		DB34F6AC144A2471574CB853 /* todo */ = {
-			isa = PBXGroup;
-			children = (
-				72DD8ED6C80467CC4E06077D /* ExpoModulesProvider.swift */,
-			);
-			name = todo;
-			sourceTree = "<group>";
-		};
-		EBD0EEF429DD4E93B78E414C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				98895BFE7AD04B20A9A39244 /* RobotoMono_500Medium.ttf */,
-				C4CB031BEEB141B1B13F43E9 /* RobotoMono_700Bold.ttf */,
-			);
-			name = Resources;
-			path = "";
+			path = oflo/Supporting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* todo */ = {
+		13B07F861A680F5B00A75B9A /* oflo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "todo" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "oflo" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				9B9A6E5F6823724C2AB690C4 /* [Expo] Configure project */,
+				ACBB928499B9E9937F87E5F1 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				E5ED67DC0F2410CEE05E6144 /* [CP] Embed Pods Frameworks */,
+				C276574BD848906C5319BBDF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = todo;
-			productName = todo;
-			productReference = 13B07F961A680F5B00A75B9A /* todo.app */;
+			name = oflo;
+			productName = oflo;
+			productReference = 13B07F961A680F5B00A75B9A /* oflo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -185,7 +185,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "todo" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "oflo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -198,7 +198,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* todo */,
+				13B07F861A680F5B00A75B9A /* oflo */,
 			);
 		};
 /* End PBXProject section */
@@ -211,9 +211,9 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				B909F18480284770AF614474 /* RobotoMono_500Medium.ttf in Resources */,
-				6F541D85D75E4F529A1C48C2 /* RobotoMono_700Bold.ttf in Resources */,
-				3A2F6EFDCD1421F2993CE04B /* PrivacyInfo.xcprivacy in Resources */,
+				B1A000EC8D6D41DBAFBFD6AF /* RobotoMono_500Medium.ttf in Resources */,
+				272F689BB65F46DA8AE8E61D /* RobotoMono_700Bold.ttf in Resources */,
+				B4C6B132C514B287F54246A5 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +250,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-todo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-oflo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -263,7 +263,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-todo/Pods-todo-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-oflo/Pods-oflo-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/EXConstants.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/ExpoConstants_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoFileSystem/ExpoFileSystem_privacy.bundle",
@@ -294,10 +294,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-todo/Pods-todo-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-oflo/Pods-oflo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9B9A6E5F6823724C2AB690C4 /* [Expo] Configure project */ = {
+		ACBB928499B9E9937F87E5F1 /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -314,15 +314,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-todo/expo-configure-project.sh\"\n";
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-oflo/expo-configure-project.sh\"\n";
 		};
-		E5ED67DC0F2410CEE05E6144 /* [CP] Embed Pods Frameworks */ = {
+		C276574BD848906C5319BBDF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-todo/Pods-todo-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-oflo/Pods-oflo-frameworks.sh",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -331,7 +331,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-todo/Pods-todo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-oflo/Pods-oflo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -342,7 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				21FC0E2347F9770CF68529C4 /* ExpoModulesProvider.swift in Sources */,
+				231644C0CDDA40493B5691AB /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,18 +351,18 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7F8301E389BA1116B60FEC0 /* Pods-todo.debug.xcconfig */;
+			baseConfigurationReference = 7D9FAFDAE2A416F9729C9CD2 /* Pods-oflo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = todo/todo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = oflo/oflo.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"FB_SONARKIT_ENABLED=1",
 				);
-				INFOPLIST_FILE = todo/Info.plist;
+				INFOPLIST_FILE = oflo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -375,9 +375,9 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.anonymous.todo;
-				PRODUCT_NAME = todo;
-				SWIFT_OBJC_BRIDGING_HEADER = "todo/todo-Bridging-Header.h";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iliarocks.oflo;
+				PRODUCT_NAME = oflo;
+				SWIFT_OBJC_BRIDGING_HEADER = "oflo/oflo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -387,13 +387,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A438DDB67FE0E981E967D1DA /* Pods-todo.release.xcconfig */;
+			baseConfigurationReference = 0187560E0F291C92721C8260 /* Pods-oflo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = todo/todo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = oflo/oflo.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = todo/Info.plist;
+				INFOPLIST_FILE = oflo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -406,9 +406,9 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = com.anonymous.todo;
-				PRODUCT_NAME = todo;
-				SWIFT_OBJC_BRIDGING_HEADER = "todo/todo-Bridging-Header.h";
+				PRODUCT_BUNDLE_IDENTIFIER = com.iliarocks.oflo;
+				PRODUCT_NAME = oflo;
+				SWIFT_OBJC_BRIDGING_HEADER = "oflo/oflo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -542,7 +542,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "todo" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "oflo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -551,7 +551,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "todo" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "oflo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "todo.app"
-               BlueprintName = "todo"
-               ReferencedContainer = "container:todo.xcodeproj">
+               BuildableName = "oflo.app"
+               BlueprintName = "oflo"
+               ReferencedContainer = "container:oflo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "todoTests.xctest"
-               BlueprintName = "todoTests"
-               ReferencedContainer = "container:todo.xcodeproj">
+               BuildableName = "ofloTests.xctest"
+               BlueprintName = "ofloTests"
+               ReferencedContainer = "container:oflo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "todo.app"
-            BlueprintName = "todo"
-            ReferencedContainer = "container:todo.xcodeproj">
+            BuildableName = "oflo.app"
+            BlueprintName = "oflo"
+            ReferencedContainer = "container:oflo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "todo.app"
-            BlueprintName = "todo"
-            ReferencedContainer = "container:todo.xcodeproj">
+            BuildableName = "oflo.app"
+            BlueprintName = "oflo"
+            ReferencedContainer = "container:oflo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

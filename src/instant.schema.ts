@@ -13,10 +13,11 @@ const _schema = i.schema({
       label: i.string().indexed(),
       date: i.string().indexed(),
       position: i.string().indexed(),
-      repeat: i.boolean().indexed(),
+      repeat: i.boolean(),
     }),
     templates: i.entity({
       label: i.string().indexed(),
+      interval: i.number(),
     }),
   },
   links: {

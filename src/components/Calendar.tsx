@@ -1,13 +1,8 @@
-import { View, Pressable } from "react-native";
 import Text from "@/components/Text";
-import { useState } from "react";
-import {
-  Directions,
-  Gesture,
-  GestureDetector,
-} from "react-native-gesture-handler";
-import { runOnJS } from "react-native-reanimated";
 import { HAPTIC_PATTERS } from "@/utilities/haptics";
+import { useState } from "react";
+import { Pressable, View } from "react-native";
+import { Gesture, GestureDetector } from "react-native-gesture-handler";
 
 const DAYS_IN_WEEK = 7;
 const MONTHS_IN_YEAR = 12;
@@ -45,25 +40,7 @@ export default function Calendar({
   const month = date.getMonth();
   const year = date.getFullYear();
 
-  // returns a 2D array of days in DAYS_IN_WEEK columns
-  const getDaysInMonth = (year: number, month: number) => {
-    const firstWeekDay = new Date(year, month).getDay();
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-    const days: number[][] = new Array(DAYS_IN_WEEK).fill(null).map(() => []);
-
-    for (let i = 0; i < firstWeekDay; i++) {
-      days[i].push(-1);
-    }
-
-    for (let i = 0; i < daysInMonth; i++) {
-      days[(i + firstWeekDay) % DAYS_IN_WEEK].push(i + 1);
-    }
-
-    return days;
-  };
-
-  const renderDays = (days: number[][]) => {
+  function renderDays(year: number, month: number, days: number[][]) {
     const dayConstructor = (day: number, key: number) => {
       const d = new Date(year, month, day);
       const isSelected = d.toISOString().split("T")[0] === selectedDate;
@@ -78,7 +55,7 @@ export default function Calendar({
       );
     };
 
-    return days.map((column, key) => {
+    const columns = days.map((column, key) => {
       const items = column.map(dayConstructor);
 
       return (
@@ -87,35 +64,21 @@ export default function Calendar({
         </View>
       );
     });
-  };
 
-  const navigateMonth = (direction: number) => {
-    if (month + direction > MONTHS_IN_YEAR - 1) {
-      setDate(new Date(year + 1, 0));
-    } else if (month + direction < 0) {
-      setDate(new Date(year - 1, MONTHS_IN_YEAR - 1));
-    } else {
-      setDate(new Date(year, month + direction));
-    }
-  };
-
-  const triggerHaptic = () => {
-    HAPTIC_PATTERS.select();
-  };
-
-  const triggerSwipeHaptic = () => {
-    HAPTIC_PATTERS.navigate();
-  };
+    return <View className="flex-row justify-between">{columns}</View>;
+  }
 
   const swipeGesture = Gesture.Pan()
-    .onStart(() => {})
+    .runOnJS(true)
     .onFinalize((event) => {
       if (event.translationX > SWIPE_THRESHOLD) {
-        runOnJS(triggerSwipeHaptic)();
-        runOnJS(navigateMonth)(-1);
-      } else if (event.translationX < -SWIPE_THRESHOLD) {
-        runOnJS(triggerSwipeHaptic)();
-        runOnJS(navigateMonth)(1);
+        HAPTIC_PATTERS.navigate();
+        setDate(navigateMonth(year, month, -1));
+      }
+
+      if (event.translationX < -SWIPE_THRESHOLD) {
+        HAPTIC_PATTERS.navigate();
+        setDate(navigateMonth(year, month, 1));
       }
     });
 
@@ -123,13 +86,11 @@ export default function Calendar({
     <View className="gap-md rounded-sm bg-neutral-0 p-md">
       <View className="flex-row justify-between">
         <Text>
-          {MONTH_NAMES[month]} {year}{" "}
+          {MONTH_NAMES[month]} {year}
         </Text>
       </View>
       <GestureDetector gesture={swipeGesture}>
-        <View className="flex-row justify-between">
-          {renderDays(getDaysInMonth(year, month))}
-        </View>
+        {renderDays(year, month, getDaysInMonth(year, month))}
       </GestureDetector>
     </View>
   );
@@ -161,4 +122,33 @@ function DayCell({ date, isVisible, isSelected, onPress }: DayCellProps) {
       <Text>{day}</Text>
     </Pressable>
   );
+}
+
+function getDaysInMonth(year: number, month: number) {
+  const firstWeekDay = new Date(year, month).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  const days: number[][] = new Array(DAYS_IN_WEEK).fill(null).map(() => []);
+
+  for (let i = 0; i < firstWeekDay; i++) {
+    days[i].push(-1);
+  }
+
+  for (let i = 0; i < daysInMonth; i++) {
+    days[(i + firstWeekDay) % DAYS_IN_WEEK].push(i + 1);
+  }
+
+  return days;
+}
+
+function navigateMonth(year: number, month: number, direction: number) {
+  if (month + direction > MONTHS_IN_YEAR - 1) {
+    return new Date(year + 1, 0);
+  }
+
+  if (month + direction < 0) {
+    return new Date(year - 1, MONTHS_IN_YEAR - 1);
+  }
+
+  return new Date(year, month + direction);
 }

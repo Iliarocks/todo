@@ -12,9 +12,8 @@ const _schema = i.schema({
     todos: i.entity({
       label: i.string().indexed(),
       date: i.string().indexed(),
-      complete: i.boolean().indexed(),
       position: i.string().indexed(),
-      repeat: i.string().indexed(),
+      repeat: i.boolean().indexed(),
     }),
     templates: i.entity({
       label: i.string().indexed(),

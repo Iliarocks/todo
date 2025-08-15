@@ -1,6 +1,6 @@
 import * as Haptics from "expo-haptics";
 
-export const HAPTIC_PATTERS = {
+export const HAPTIC_PATTERNS = {
   select: () => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light),
   success: () =>
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success),

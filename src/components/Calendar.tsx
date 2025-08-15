@@ -1,5 +1,5 @@
 import Text from "@/components/Text";
-import { HAPTIC_PATTERS } from "@/utilities/haptics";
+import { HAPTIC_PATTERNS } from "@/utilities/haptics";
 import { useState } from "react";
 import { Pressable, View } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
@@ -72,12 +72,12 @@ export default function Calendar({
     .runOnJS(true)
     .onFinalize((event) => {
       if (event.translationX > SWIPE_THRESHOLD) {
-        HAPTIC_PATTERS.navigate();
+        HAPTIC_PATTERNS.navigate();
         setDate(navigateMonth(year, month, -1));
       }
 
       if (event.translationX < -SWIPE_THRESHOLD) {
-        HAPTIC_PATTERS.navigate();
+        HAPTIC_PATTERNS.navigate();
         setDate(navigateMonth(year, month, 1));
       }
     });
@@ -110,7 +110,7 @@ function DayCell({ date, isVisible, isSelected, onPress }: DayCellProps) {
   const activeStyles = "bg-primary-5";
 
   const handlePress = () => {
-    HAPTIC_PATTERS.select();
+    HAPTIC_PATTERNS.select();
     onPress(date.toISOString().split("T")[0]);
   };
 

@@ -13,16 +13,18 @@ export default function Inbox() {
       $: {
         where: {
           date: "",
-          complete: false,
           "user.id": user.id,
         },
       },
+      template: {},
     },
   } as const;
 
   const { isLoading, data, error } = db.useQuery(query);
 
   if (isLoading || error) return null;
+
+  console.log(data);
 
   return (
     <ScreenView>

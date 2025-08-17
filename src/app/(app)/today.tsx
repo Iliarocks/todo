@@ -29,7 +29,7 @@ export default function Today() {
 
   return (
     <ScreenView>
-      <Header>inbox</Header>
+      <Header>today</Header>
       <TodoList todos={_.orderBy(data.todos, ["position"], ["asc"])} />
     </ScreenView>
   );

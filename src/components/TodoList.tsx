@@ -7,9 +7,9 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Todo from "@/components/Todo";
 import { db } from "@/utilities/database";
 import { generateKeyBetween } from "fractional-indexing";
-import { HAPTIC_PATTERS } from "@/utilities/haptics";
+import { HAPTIC_PATTERNS } from "@/utilities/haptics";
 
-type TodoType = InstaQLEntity<AppSchema, "todos">;
+type TodoType = InstaQLEntity<AppSchema, "todos", { template: {} }>;
 
 interface TodoListProps {
   todos: TodoType[];
@@ -38,7 +38,7 @@ export default function TodoList({ todos }: TodoListProps) {
     from: number;
     to: number;
   }) => {
-    HAPTIC_PATTERS.navigate();
+    HAPTIC_PATTERNS.navigate();
 
     if (from === to) return;
 
@@ -49,8 +49,8 @@ export default function TodoList({ todos }: TodoListProps) {
   const renderItem = ({ item, drag, isActive }: RenderItemParams<TodoType>) => {
     return (
       <Todo
-        id={item.id}
-        label={item.label}
+        todo={item}
+        template={item.template}
         onDrag={drag}
         dragActive={isActive}
       />

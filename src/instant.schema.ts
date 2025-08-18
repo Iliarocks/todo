@@ -12,14 +12,22 @@ const _schema = i.schema({
     todos: i.entity({
       label: i.string().indexed(),
       date: i.string().indexed(),
-      complete: i.boolean().indexed(),
       position: i.string().indexed(),
+      repeat: i.boolean(),
+    }),
+    templates: i.entity({
+      label: i.string().indexed(),
+      interval: i.number(),
     }),
   },
   links: {
     userTodos: {
       forward: { on: "todos", has: "one", label: "user", required: true },
       reverse: { on: "$users", has: "many", label: "todos" },
+    },
+    todoTemplate: {
+      forward: { on: "todos", has: "one", label: "template" },
+      reverse: { on: "templates", has: "one", label: "todo" },
     },
   },
 });
